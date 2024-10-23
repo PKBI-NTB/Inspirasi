@@ -1,10 +1,9 @@
 @extends('adminlte::page')
 
-
-@section('title', 'Data berita')
+@section('title', 'Data Berita')
 
 @section('content_header')
-    <h1>Data berita</h1>
+    <h1>Data Berita</h1>
 @stop
 
 @section('content')
@@ -14,9 +13,7 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('berita.create') }}" class="btn btn-md btn-success mb-3">Tambah Berita</a>
-                        
-                        <!-- Tambahkan table-responsive untuk membuat tabel scrollable -->
+                        <a href="{{ route('admin.berita.create') }}" class="btn btn-md btn-success mb-3">Tambah Berita</a>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
@@ -31,20 +28,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($berita as $berita)
+                                    @forelse ($berita as $item)
                                         <tr>
-                                            <td>{{ $berita->judul }}</td>
-                                            <td>{{ $berita->penulis }}</td>
-                                            <td>{{ $berita->tanggal }}</td>
+                                            <td>{{ $item->judul }}</td>
+                                            <td>{{ $item->penulis }}</td>
+                                            <td>{{ $item->tanggal }}</td>
                                             <td class="text-center">
-                                                <img src="{{ asset('/storage/beritas/'.$berita->image) }}" class="rounded" style="width: 150px">
+                                                <img src="{{ Storage::url('berita/'.$item->image) }}" class="rounded" style="width: 150px;">
                                             </td>
-                                            <td>{{ $berita->deskripsi }}</td>
-                                            <td>{{ $berita->tags }}</td>
+                                            <td>{{ $item->deskripsi }}</td>
+                                            <td>{{ $item->tags }}</td>
                                             <td class="text-center">
-                                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('beritas.destroy', $berita->id) }}" method="POST">
-                                                    <a href="{{ route('berita.show', $berita->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                                    <a href="{{ route('berita.edit', $berita->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('admin.berita.destroy', $item->id) }}" method="POST">
+                                                    <a href="{{ route('admin.berita.show', $item->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                                    <a href="{{ route('admin.berita.edit', $item->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
@@ -52,26 +49,24 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <div class="alert alert-danger">
-                                            Data Berita belum Tersedia.
-                                        </div>
+                                        <tr>
+                                            <td colspan="7" class="text-center">
+                                                <div class="alert alert-danger">Data Berita belum Tersedia.</div>
+                                            </td>
+                                        </tr>
                                     @endforelse
                                 </tbody>
                             </table>
                         </div>
-                        
                         {{ $berita->links() }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>
-        //message with sweetalert
         @if(session('success'))
             Swal.fire({
                 icon: "success",
@@ -90,17 +85,16 @@
             });
         @endif
     </script>
-
 </body>
 @stop
 
 @section('css')
-    {{-- Add here extra stylesheets --}}
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+{{-- Add here extra stylesheets --}}
+{{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 @stop
 
 @section('js')
-    <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
+<script>
+    console.log("Hi, I'm using the Laravel-AdminLTE package!");
+</script>
 @stop
-
-</html>

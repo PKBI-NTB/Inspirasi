@@ -85,4 +85,6 @@ Route::get('/program/detail', function () {
 Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
-Route::resource('/admin/berita', \App\Http\Controllers\BeritaController::class);
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('berita', BeritaController::class);
+});
