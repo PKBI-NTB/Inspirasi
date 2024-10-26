@@ -17,8 +17,13 @@ return new class extends Migration
             $table->string('penulis');
             $table->string('tanggal');
             $table->string('image');
+<<<<<<< HEAD
+            $table->text('deskripsi');
+            $table->string(column: 'tags');
+=======
             $table->string('deskripsi');
             $table->string('tags');
+>>>>>>> 8a7525b (1)
             $table->timestamps();
         });
     }
