@@ -205,8 +205,8 @@
         </div>
     </div>
 </footer>
-<div  class="bg-primary-200 text-center mt-0 text-black text-bold p-5">
-    ©Copyright Institut Perempuan untuk Perubahan Sosial
+<div  class="bg-primary-900 text-center mt-0 text-white-50 text-bold p-5">
+  ©Copyright Institut Perempuan untuk Perubahan Sosial
 </div>
 
     
