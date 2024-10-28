@@ -11,23 +11,23 @@
     <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
       
       <!-- Kolom Kiri: Sub Materi -->
-      <div class="lg:col-span-1">
+        <div class="lg:col-span-1 ">
         <!-- Bagian atas dengan background kuning -->
-        <div class="bg-[#feed00] p-6 rounded-t-lg shadow-lg">
-          <h3 class="text-xl font-bold text-black">Sub Materi</h3>
-        </div>
+            <div class="bg-secondary-500 p-6 rounded-t-lg shadow-lg">
+                <h3 class="text-xl font-bold text-black">Sub Materi</h3>
+            </div>
         
         <!-- Bagian bawah dengan background kuning keputihan -->
-        <div class="bg-yellow-50 p-6 rounded-b-lg shadow-lg">
-          <ul class="space-y-2">
-            <li><a href="#sejarah" class="text-black hover:text-blue-600">Sejarah Singkat</a></li>
-            <li><a href="#visi-misi" class="text-black hover:text-blue-600">Visi & Misi</a></li>
-            <li><a href="#pengurus" class="text-black hover:text-blue-600">Pengurus</a></li>
-            <li><a href="#struktur" class="text-black hover:text-blue-600">Struktur Organisasi</a></li>
-            <li><a href="#isu-strategis" class="text-black hover:text-blue-600">5 Isu Strategis</a></li>
-          </ul>
+            <div class="bg-yellow-50 p-6 rounded-b-lg shadow-lg">
+                <ul class="space-y-2">
+                 <li><a href="#sejarah" class="text-black hover:text-blue-600">Sejarah Singkat</a></li>
+                 <li><a href="#visi-misi" class="text-black hover:text-blue-600">Visi & Misi</a></li>
+                 <li><a href="#pengurus" class="text-black hover:text-blue-600">Pengurus</a></li>
+                 <li><a href="#struktur" class="text-black hover:text-blue-600">Struktur Organisasi</a></li>
+                 <li><a href="#isu-strategis" class="text-black hover:text-blue-600">5 Isu Strategis</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
       
   
       <!-- Kolom Kanan: Sejarah, Visi Misi, Pengurus, dll -->
@@ -204,8 +204,8 @@
             </div>
         
           <div class="grid grid-cols-3 gap-6">
-            <div class="bg-yellow-200 p-4 rounded-lg shadow-md">Pengawas</div>
-            <div class="bg-yellow-300 p-4 rounded-lg shadow-md">Direktur</div>
+            <div class="bg-secondary-200 p-4 rounded-lg shadow-md">Pengawas</div>
+            <div class="bg-secondary-300 p-4 rounded-lg shadow-md">Direktur</div>
             <div class="bg-gray-400 p-4 rounded-lg shadow-md">Divisi-divisi</div>
           </div>
         </div>
@@ -251,10 +251,10 @@
                 </div>
         
                 <!-- Isu Strategis 4 -->
-                <div class="flex bg-yellow-200 p-6 rounded-lg shadow-md">
-                    <div class="flex-shrink-0 w-16 h-16 bg-yellow-400 flex items-center justify-center rounded-full text-white text-3xl">4</div>
+                <div class="flex bg-secondary-200 p-6 rounded-lg shadow-md">
+                    <div class="flex-shrink-0 w-16 h-16 bg-secondary-600 flex items-center justify-center rounded-full text-white text-3xl">4</div>
                     <div class="ml-6 text-left">
-                        <h3 class="text-xl font-semibold text-yellow-600">Partisipasi Perempuan dalam Kepemimpinan</h3>
+                        <h3 class="text-xl font-semibold text-secondary-600">Partisipasi Perempuan dalam Kepemimpinan</h3>
                         <p class="text-gray-700">Peningkatan partisipasi perempuan dalam pengambilan keputusan menjadi prioritas untuk mencapai keseimbangan gender di semua sektor.</p>
                     </div>
                 </div>

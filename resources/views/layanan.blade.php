@@ -85,24 +85,11 @@
         <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
           <!-- Card Item -->
           <div class="relative rounded-lg overflow-hidden shadow-lg">
-            <img src="image1.jpg" alt="Layanan 1" class="w-full h-56 object-cover">
+            <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black opacity-40"></div>
             <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-yellow-400">Eliminasi TB</h3>
-              <p class="mt-2 text-sm">
-                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
-                kesehatan yang lebih baik!
-              </p>
-            </div>
-          </div>
-          
-          <!-- Card Item (Copy and repeat for other cards) -->
-          <div class="relative rounded-lg overflow-hidden shadow-lg">
-            <img src="image1.jpg" alt="Layanan 2" class="w-full h-56 object-cover">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-yellow-400">Eliminasi TB</h3>
-              <p class="mt-2 text-sm">
+              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
+              <p class="mt-2 text-justify font-bold text-white-50">
                 Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
                 kesehatan yang lebih baik!
               </p>
@@ -110,11 +97,11 @@
           </div>
 
           <div class="relative rounded-lg overflow-hidden shadow-lg">
-            <img src="image1.jpg" alt="Layanan 2" class="w-full h-56 object-cover">
+            <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black opacity-40"></div>
             <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-yellow-400">Eliminasi TB</h3>
-              <p class="mt-2 text-sm">
+              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
+              <p class="mt-2 text-justify font-bold text-white-50">
                 Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
                 kesehatan yang lebih baik!
               </p>
@@ -122,11 +109,11 @@
           </div>
 
           <div class="relative rounded-lg overflow-hidden shadow-lg">
-            <img src="image1.jpg" alt="Layanan 2" class="w-full h-56 object-cover">
+            <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black opacity-40"></div>
             <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-yellow-400">Eliminasi TB</h3>
-              <p class="mt-2 text-sm">
+              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
+              <p class="mt-2 text-justify font-bold text-white-50">
                 Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
                 kesehatan yang lebih baik!
               </p>
@@ -134,11 +121,11 @@
           </div>
 
           <div class="relative rounded-lg overflow-hidden shadow-lg">
-            <img src="image1.jpg" alt="Layanan 2" class="w-full h-56 object-cover">
+            <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black opacity-40"></div>
             <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-yellow-400">Eliminasi TB</h3>
-              <p class="mt-2 text-sm">
+              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
+              <p class="mt-2 text-justify font-bold text-white-50">
                 Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
                 kesehatan yang lebih baik!
               </p>
@@ -146,17 +133,28 @@
           </div>
 
           <div class="relative rounded-lg overflow-hidden shadow-lg">
-            <img src="image1.jpg" alt="Layanan 2" class="w-full h-56 object-cover">
+            <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black opacity-40"></div>
             <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-yellow-400">Eliminasi TB</h3>
-              <p class="mt-2 text-sm">
+              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
+              <p class="mt-2 text-justify font-bold text-white-50">
                 Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
                 kesehatan yang lebih baik!
               </p>
             </div>
           </div>
-      
+
+          <div class="relative rounded-lg overflow-hidden shadow-lg">
+            <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
+            <div class="absolute inset-0 bg-black opacity-40"></div>
+            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
+              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
+              <p class="mt-2 text-justify font-bold text-white-50">
+                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
+                kesehatan yang lebih baik!
+              </p>
+            </div>
+          </div>
           <!-- Tambahkan kartu lainnya sesuai kebutuhan -->
         </div>
       </div>

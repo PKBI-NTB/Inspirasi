@@ -59,7 +59,6 @@
 </nav>
 <div class="p-6 mt-16">
     <div class="max-w-screen-xl mx-auto">
-
         <!-- Carousel Section -->
         <div id="indicators-carousel" class="relative w-full mt-6" data-carousel="static">
             <!-- Carousel wrapper -->
