@@ -84,75 +84,69 @@
         <!-- Card Grid -->
         <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
           <!-- Card Item -->
-          <div class="relative rounded-lg overflow-hidden shadow-lg">
+          <div class="relative rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105" onmouseover="changeContent(this)" onmouseout="resetContent(this)">
             <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
-              <p class="mt-2 text-justify font-bold text-white-50">
-                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
-                kesehatan yang lebih baik!
-              </p>
+            <div class="absolute inset-0 bg-black opacity-40 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 p-6 flex flex-col items-left justify-center text-white transition-opacity duration-300">
+            <h3 class="text-2xl font-bold text-secondary-500 transition-opacity duration-300">Eliminasi TB</h3>
+            <p class="mt-2 text-justify font-bold text-white-50 transition-opacity duration-300">
+                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk kesehatan yang lebih baik!
+            </p>
             </div>
           </div>
 
-          <div class="relative rounded-lg overflow-hidden shadow-lg">
+          <div class="relative rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105" onmouseover="changeContent(this)" onmouseout="resetContent(this)">
             <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
-              <p class="mt-2 text-justify font-bold text-white-50">
-                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
-                kesehatan yang lebih baik!
-              </p>
+            <div class="absolute inset-0 bg-black opacity-40 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 p-6 flex flex-col items-left justify-center text-white transition-opacity duration-300">
+            <h3 class="text-2xl font-bold text-secondary-500 transition-opacity duration-300">Eliminasi TB</h3>
+            <p class="mt-2 text-justify font-bold text-white-50 transition-opacity duration-300">
+                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk kesehatan yang lebih baik!
+            </p>
             </div>
           </div>
 
-          <div class="relative rounded-lg overflow-hidden shadow-lg">
+          <div class="relative rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105" onmouseover="changeContent(this)" onmouseout="resetContent(this)">
             <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
-              <p class="mt-2 text-justify font-bold text-white-50">
-                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
-                kesehatan yang lebih baik!
-              </p>
+            <div class="absolute inset-0 bg-black opacity-40 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 p-6 flex flex-col items-left justify-center text-white transition-opacity duration-300">
+            <h3 class="text-2xl font-bold text-secondary-500 transition-opacity duration-300">Eliminasi TB</h3>
+            <p class="mt-2 text-justify font-bold text-white-50 transition-opacity duration-300">
+                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk kesehatan yang lebih baik!
+            </p>
             </div>
           </div>
 
-          <div class="relative rounded-lg overflow-hidden shadow-lg">
+          <div class="relative rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105" onmouseover="changeContent(this)" onmouseout="resetContent(this)">
             <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
-              <p class="mt-2 text-justify font-bold text-white-50">
-                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
-                kesehatan yang lebih baik!
-              </p>
+            <div class="absolute inset-0 bg-black opacity-40 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 p-6 flex flex-col items-left justify-center text-white transition-opacity duration-300">
+            <h3 class="text-2xl font-bold text-secondary-500 transition-opacity duration-300">Eliminasi TB</h3>
+            <p class="mt-2 text-justify font-bold text-white-50 transition-opacity duration-300">
+                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk kesehatan yang lebih baik!
+            </p>
             </div>
           </div>
 
-          <div class="relative rounded-lg overflow-hidden shadow-lg">
+          <div class="relative rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105" onmouseover="changeContent(this)" onmouseout="resetContent(this)">
             <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
-              <p class="mt-2 text-justify font-bold text-white-50">
-                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
-                kesehatan yang lebih baik!
-              </p>
+            <div class="absolute inset-0 bg-black opacity-40 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 p-6 flex flex-col items-left justify-center text-white transition-opacity duration-300">
+            <h3 class="text-2xl font-bold text-secondary-500 transition-opacity duration-300">Eliminasi TB</h3>
+            <p class="mt-2 text-justify font-bold text-white-50 transition-opacity duration-300">
+                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk kesehatan yang lebih baik!
+            </p>
             </div>
           </div>
 
-          <div class="relative rounded-lg overflow-hidden shadow-lg">
+          <div class="relative rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105" onmouseover="changeContent(this)" onmouseout="resetContent(this)">
             <img src="{{ asset('img/program/slide-program.png') }}" alt="Layanan 1" class="w-full h-56 object-cover">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-              <h3 class="text-xl font-bold text-secondary-500">Eliminasi TB</h3>
-              <p class="mt-2 text-justify font-bold text-white-50">
-                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk
-                kesehatan yang lebih baik!
-              </p>
+            <div class="absolute inset-0 bg-black opacity-40 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 p-6 flex flex-col items-left justify-center text-white transition-opacity duration-300">
+            <h3 class="text-2xl font-bold text-secondary-500 transition-opacity duration-300">Eliminasi TB</h3>
+            <p class="mt-2 text-justify font-bold text-white-50 transition-opacity duration-300">
+                Laporkan gejala TBC di Mataram dan Lombok Barat, dan bersama kita eliminasi TB untuk kesehatan yang lebih baik!
+            </p>
             </div>
           </div>
           <!-- Tambahkan kartu lainnya sesuai kebutuhan -->
@@ -204,6 +198,39 @@
 
         </div>
     </div>
+
+    <script>
+      function changeContent(element) {
+          element.querySelector("h3").textContent = "HUBUNGI KAMI";
+          element.querySelector("h3").classList.add("text-center"); // Memastikan teks berada di tengah
+          element.querySelector("p").style.display = "none"; // Menyembunyikan paragraf saat di-hover
+      }
+      function resetContent(element) {
+          element.querySelector("h3").textContent = "Eliminasi TB";
+          element.querySelector("h3").classList.remove("text-center"); // Mengembalikan posisi teks asli
+          element.querySelector("p").style.display = "block"; // Menampilkan kembali paragraf saat hover dilepaskan
+      }
+  </script>
+  
+  <style>
+      /* Animasi zoom saat hover */
+      .transform.transition-transform.duration-300:hover {
+          transform: scale(1.05);
+      }
+  
+      /* Menampilkan teks di tengah dengan posisi absolute dan flex */
+      .absolute.inset-0.p-6.flex.flex-col.items-center.justify-center.text-white {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+  
+      /* Efek transisi untuk opacity */
+      .transition-opacity {
+          transition: opacity 0.3s;
+      }
+  </style>
+  
 </footer>
 <div  class="bg-primary-900 text-center mt-0 text-white-50 text-bold p-5">
   ©Copyright Institut Perempuan untuk Perubahan Sosial
