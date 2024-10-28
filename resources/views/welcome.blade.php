@@ -28,7 +28,7 @@
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-yellow-300 dark:hover:bg-yellow-400 dark:focus:ring-blue-800">Kontak</button>
+            <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-secondary-400 dark:hover:bg-secondary-500 dark:focus:ring-blue-800">Kontak</button>
             <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -75,8 +75,8 @@
             </div>
             <!-- Slider indicators -->
             <div class="absolute z-30 flex -translate-x-1/2 space-x-3 bottom-5 left-1/2">
-                <button type="button" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-[#06537499] hover:border-2 hover:border-yellow-400" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-[#06537499] hover:border-2 hover:border-yellow-400" aria-current="true" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                <button type="button" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-[#06537499] hover:border-2 hover:border-secondary-400" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                <button type="button" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-[#06537499] hover:border-2 hover:border-secondary-400" aria-current="true" aria-label="Slide 2" data-carousel-slide-to="1"></button>
             </div>
             <!-- Slider controls -->
             <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -107,7 +107,7 @@
     <div class="text-justify">
         <p class="text-lg font-normal text-gray-700">Pada tanggal 16 Oktober 2023, Rannya Agustyra Kristiono, seorang tokoh inspiratif yang dikenal dengan kiprahnya di bidang pemberdayaan masyarakat dan inovasi, men....</p>
         <div class="flex justify-end mt-4">
-            <button class="px-6 py-3 text-lg font-bold text-black bg-[#feed00] hover:bg-yellow-500 rounded-lg">
+            <button class="px-6 py-3 text-lg font-bold text-black bg-secondary-400 hover:bg-secondary-500 rounded-lg">
                 Baca Selengkapnya
             </button>
         </div>
@@ -129,7 +129,7 @@
             <p class="mt-4 text-lg font-normal text-gray-700">
                 <strong>Institut Perempuan untuk Perubahan Sosial</strong> (InSPIRASI NTB), sebuah lembaga yang didirikan pada 7 Mei 2009 dan disahkan secara legal pada 28 Desember 2017. Bertujuan <strong>membangun gerakan perempuan untuk mencapai keadilan sosial, kesetaraan gender, kesadaran ekologis, pluralisme, transparansi, dan anti kekerasan</strong> dengan berfokus pada memperkuat gerakan perempuan melalui pendidikan kritis, advokasi berbasis bukti, penelitian, kerja sama multi-pihak, dan pemberdayaan kelompok marginal.
             </p>
-            <a href="#" class="inline-block mt-6 bg-[#feed00] text-black font-bold py-2 px-4 rounded-lg hover:bg-yellow-400">
+            <a href="#" class="inline-block mt-6 bg-secondary-400 text-black font-bold py-2 px-4 rounded-lg hover:bg-secondary-500">
                 Lihat Selengkapnya
             </a>
         </div>
@@ -173,7 +173,7 @@
             <!-- Card 2 -->
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <div class="flex justify-center mb-4">
-                    <div class="bg-yellow-400 text-white rounded-full p-4">
+                    <div class="bg-secondary-400 text-white rounded-full p-4">
                         <!-- Icon Kesehatan -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
                             <!-- Example Icon -->
@@ -229,7 +229,7 @@
 
         <!-- Button Section -->
         <div class="mt-8">
-            <a href="#" class="inline-block bg-[#feed00] text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-400">
+            <a href="#" class="inline-block bg-secondary-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-secondary-500">
                 Lihat Selengkapnya
             </a>
         </div>
@@ -337,7 +337,7 @@
   
     <!-- Button Section -->
     <div class="text-center mt-8">
-      <a href="#" class="bg-[#feed00] text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-400">
+      <a href="#" class="bg-secondary-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-secondary-500">
         Lihat Selengkapnya
       </a>
     </div>

@@ -87,7 +87,7 @@ export default {
                     900: "#214358",
                     950: "#102a3c",
                 },
-                info: {
+                neutral: {
                     50: "#f6f7f9",
                     100: "#eceef2",
                     200: "#d5d9e2",
