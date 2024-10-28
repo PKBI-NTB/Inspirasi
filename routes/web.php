@@ -9,23 +9,23 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/beranda', function () {
-    return view('welcome');
+    return view('beranda.welcome');
 })->name('welcome');
 
 Route::get('/profile', function () {
-    return view('profile');
+    return view('profile.profile');
 })->name('profile');
 
 Route::get('/berita', function () {
-    return view('berita');
+    return view('berita.berita');
 })->name('berita');
 
 Route::get('/detailberita', function () {
-    return view('detailberita');
+    return view('berita.detailberita');
 })->name('detailberita');
 
 Route::get('/layanan', function () {
-    return view('layanan');
+    return view('layanan.layanan');
 })->name('layanan');
 
 Route::get('/program', function () {
