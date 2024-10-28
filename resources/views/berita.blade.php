@@ -71,7 +71,7 @@
         </div>
     </div>
 
-    <div class="flex flex-col md:flex-row items-center justify-between mt-20 p-28 pt-0 pb-0">
+    <div class="flex flex-col md:flex-row items-center justify-between mt-20 p-28 pt-0 px-24 pb-0">
         <!-- Bagian Gambar -->
         <div class="md:w-1/2">
             <img src="{{ asset('img/berita2.png') }}" alt="Berita Image" class="rounded-lg w-full h-auto max-w-xl">
@@ -96,7 +96,7 @@
     </div>
 
     <!-- Bagian Kartu Berita di bawah -->
-<div class="mt-12 p-28 pt-0 pb-0">
+<div class="mt-12 px-24 p-28 pt-0 pb-0">
     <h2 class="text-2xl font-bold mb-4">Semua Postingan Berita</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -221,6 +221,18 @@
         </div>
     </div>
 </div>
+
+<div class="flex justify-between items-center px-24 mt-8">
+    <a href="#" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Sebelumnya</a>
+    <div class="flex gap-4 items-center">
+        <a href="#" class="text-primary-600">1</a>
+        <a href="#" class="text-gray-600">2</a>
+        <a href="#" class="text-gray-600">...</a>
+        <a href="#" class="text-gray-600">5</a>
+        <a href="#" class="text-gray-600">6</a>
+    </div>
+    <a href="#" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Selanjutnya</a>
+ </div>
 
 <!-- Footer -->
 <footer class="bg-primary-50 py-10 mt-12">
