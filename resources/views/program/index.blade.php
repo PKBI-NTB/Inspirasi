@@ -84,7 +84,7 @@
         <div class="px-4 md:px-24 py-40 pt-80 md:py-12 w-full grid grid-cols-1 md:grid-cols-2 items-center gap-8">
             <div class="col-span-1 flex flex-col items-center md:items-start">
                 <h1 class="text-3xl font-extrabold text-black text-center md:text-left">Tumbuh dari Keprihatinan, Bergerak untuk Perubahan Sosial yang Membumi dan Berkelanjutan.</h1>
-                <button class="bg-secondary-500 hover:bg-secondary-600 text-white font-bold py-2 px-4 rounded mt-6">
+                <button class="bg-secondary-400 hover:bg-secondary-500 text-white font-bold py-2 px-4 rounded mt-6">
                 Hubungi Kami Sekarang!
                 </button>
             </div>
@@ -120,7 +120,7 @@
 
             <!-- pagination -->
              <div class="flex justify-between items-center mt-8">
-                <a href="#" class="p-2 px-3 bg-secondary-500 hover:bg-secondary-200 font-bold rounded-lg shadow">Sebelumnya</a>
+                <a href="#" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Sebelumnya</a>
                 <div class="flex gap-4 items-center">
                     <a href="#" class="text-primary-600">1</a>
                     <a href="#" class="text-gray-600">2</a>
@@ -128,7 +128,7 @@
                     <a href="#" class="text-gray-600">5</a>
                     <a href="#" class="text-gray-600">6</a>
                 </div>
-                <a href="#" class="p-2 px-3 bg-secondary-500 hover:bg-secondary-200 font-bold rounded-lg shadow">Selanjutnya</a>
+                <a href="#" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Selanjutnya</a>
              </div>
         </div>
 

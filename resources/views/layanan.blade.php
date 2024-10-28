@@ -58,7 +58,7 @@
     <div class="px-4 md:px-24 py-40 pt-80 md:py-12 w-full grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         <div class="col-span-1 flex flex-col items-center md:items-start">
             <h1 class="text-3xl font-extrabold text-black text-center md:text-left">Hubungi kami untuk layanan terbaik dan bersama ciptakan dampak nyata bagi perubahan sosial!</h1>
-            <button class="bg-secondary-500 hover:bg-secondary-600 text-white font-bold py-2 px-4 rounded mt-6">
+            <button class="bg-secondary-400 hover:bg-secondary-500 text-white font-bold py-2 px-4 rounded mt-6">
             Hubungi Kami Sekarang!
             </button>
         </div>
