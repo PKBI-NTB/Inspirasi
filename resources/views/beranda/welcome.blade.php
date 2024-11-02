@@ -22,7 +22,7 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="bg-white-50 dark:bg-white-50 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-white-50">
+<nav class="bg-white-50 dark:bg-white-50 fixed w-full z-50 top-0 start-0 border-b border-gray-200 dark:border-white-50">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="{{ asset('img/logonav.png') }}" alt="Logo Navigation" class="h-15">
@@ -59,7 +59,8 @@
     </div>
 </nav>
 
-<div class="p-6 mt-16">
+<!-- Main Content Section -->
+<div class="p-6 mt-16" style="padding-top: 4rem;">
     <div class="max-w-screen-xl mx-auto">
         <!-- Carousel Section -->
         <div id="indicators-carousel" class="relative w-full mt-6" data-carousel="static">
@@ -98,24 +99,25 @@
             </button>
         </div>
         
- <!-- Text Section -->
- <div class="grid grid-cols-2 gap-4 mt-8">
-    <!-- Left Text -->
-    <div class="text-left">
-        <h2 class="text-5xl font-bold text-black">Silaturahmi Rannya Agustyra Kristiono ke InSPIRASI NTB</h2>
-    </div>
-    <!-- Right Text -->
-    <div class="text-justify">
-        <p class="text-lg font-normal text-gray-700">Pada tanggal 16 Oktober 2023, Rannya Agustyra Kristiono, seorang tokoh inspiratif yang dikenal dengan kiprahnya di bidang pemberdayaan masyarakat dan inovasi, men....</p>
-        <div class="flex justify-end mt-4">
-            <button class="px-6 py-3 text-lg font-bold text-black bg-secondary-400 hover:bg-secondary-500 rounded-lg">
-                Baca Selengkapnya
-            </button>
+        <!-- Text Section -->
+        <div class="grid grid-cols-2 gap-4 mt-8">
+            <!-- Left Text -->
+            <div class="text-left">
+                <h2 class="text-5xl font-bold text-black">Silaturahmi Rannya Agustyra Kristiono ke InSPIRASI NTB</h2>
+            </div>
+            <!-- Right Text -->
+            <div class="text-justify">
+                <p class="text-lg font-normal text-gray-700">Pada tanggal 16 Oktober 2023, Rannya Agustyra Kristiono, seorang tokoh inspiratif yang dikenal dengan kiprahnya di bidang pemberdayaan masyarakat dan inovasi, men....</p>
+                <div class="flex justify-end mt-4">
+                    <button class="px-6 py-3 text-lg font-bold text-black bg-secondary-400 hover:bg-secondary-500 rounded-lg">
+                        Baca Selengkapnya
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-    </div>
-</div>
+
 <section class="bg-[#f8fcd7] py-10 px-6">
     <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6">
         <!-- Text Section -->
