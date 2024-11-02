@@ -159,17 +159,17 @@
 <!-- Footer -->
 <footer class="bg-primary-50 py-10 mt-12">
     <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-start">
+        <div class="flex flex-col md:flex-row items-start">
             
             <!-- Logo dan Deskripsi -->
-            <div class="md:w-1/2 mb-8 md:mb-0">
+            <div class="md:size-40 mb-8 md:mb-0 mr-20">
                 <img src="{{ asset('img/logofoot.png') }}" alt="InSPIRASI NTB Logo" class="w-full h-auto max-w-sm">
             </div>
 
             <!-- Navigasi -->
-            <div class="md:w-1/6 mb-0 md:mb-0">
+            <div class="md:size-40 mb-0 md:mb-0 mr-20">
                 <h3 class="text-lg font-bold mb-4">Navigasi</h3>
-                <ul class="space-y-2">
+                <ul class="space-y-1">
                     <li><a href="{{ route('welcome') }}" class="text-gray-600 hover:text-gray-900">Beranda</a></li>
                     <li><a href="{{ route('profile') }}" class="text-gray-600 hover:text-gray-900">Profil</a></li>
                     <li><a href="{{ route('program') }}" class="text-gray-600 hover:text-gray-900">Program</a></li>
@@ -179,14 +179,14 @@
             </div>
 
              <!-- Google Maps -->
-             <div class="md:w-1/3 mb-8 md:mb-0">
-            <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d444.90758671553914!2d116.11770498431231!3d-8.625185303563988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbfa376b1df23%3A0x35743244b0b28910!2sInspirasi%20Coffee%20%26%20Culture%20movement!5e1!3m2!1sid!2sid!4v1728542733878!5m2!1sid!2sid"
-            width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+             <div class="md:size-20 mb-8 md:mb-0 mr-56">
+                <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d444.90758671553914!2d116.11770498431231!3d-8.625185303563988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbfa376b1df23%3A0x35743244b0b28910!2sInspirasi%20Coffee%20%26%20Culture%20movement!5e1!3m2!1sid!2sid!4v1728542733878!5m2!1sid!2sid"
+                width="450" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
 
             <!-- Kontak Kami -->
-            <div class="md:w-1/3 mb-8 md:mb-0">
+            <div class="md:w-1/3 mb-8 md:mb-0 ml-56">
                 <h3 class="text-lg font-bold mb-4">Kontak Kami</h3>
                 <ul class="space-y-2">
                     <li><a href="tel:+62890123412349875" class="text-gray-600 hover:text-gray-900">+62 890-1234-1234-9875</a></li>
@@ -199,45 +199,43 @@
 
         </div>
     </div>
-
-    <script>
-      function changeContent(element) {
-          element.querySelector("h3").textContent = "HUBUNGI KAMI";
-          element.querySelector("h3").classList.add("text-center"); // Memastikan teks berada di tengah
-          element.querySelector("p").style.display = "none"; // Menyembunyikan paragraf saat di-hover
-      }
-      function resetContent(element) {
-          element.querySelector("h3").textContent = "Eliminasi TB";
-          element.querySelector("h3").classList.remove("text-center"); // Mengembalikan posisi teks asli
-          element.querySelector("p").style.display = "block"; // Menampilkan kembali paragraf saat hover dilepaskan
-      }
-  </script>
-  
-  <style>
-      /* Animasi zoom saat hover */
-      .transform.transition-transform.duration-300:hover {
-          transform: scale(1.05);
-      }
-  
-      /* Menampilkan teks di tengah dengan posisi absolute dan flex */
-      .absolute.inset-0.p-6.flex.flex-col.items-center.justify-center.text-white {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-      }
-  
-      /* Efek transisi untuk opacity */
-      .transition-opacity {
-          transition: opacity 0.3s;
-      }
-  </style>
-  
 </footer>
-<div  class="bg-primary-900 text-center mt-0 text-white-50 text-bold p-5">
-  ©Copyright Institut Perempuan untuk Perubahan Sosial
+<div  class="bg-primary-900 text-center mt-0 text-white-50 text-bold py-2">
+    ©Copyright Institut Perempuan untuk Perubahan Sosial
 </div>
 
-    
+<script>
+    function changeContent(element) {
+        element.querySelector("h3").textContent = "HUBUNGI KAMI";
+        element.querySelector("h3").classList.add("text-center"); // Memastikan teks berada di tengah
+        element.querySelector("p").style.display = "none"; // Menyembunyikan paragraf saat di-hover
+    }
+    function resetContent(element) {
+        element.querySelector("h3").textContent = "Eliminasi TB";
+        element.querySelector("h3").classList.remove("text-center"); // Mengembalikan posisi teks asli
+        element.querySelector("p").style.display = "block"; // Menampilkan kembali paragraf saat hover dilepaskan
+    }
+</script>
+
+<style>
+    /* Animasi zoom saat hover */
+    .transform.transition-transform.duration-300:hover {
+        transform: scale(1.05);
+    }
+
+    /* Menampilkan teks di tengah dengan posisi absolute dan flex */
+    .absolute.inset-0.p-6.flex.flex-col.items-center.justify-center.text-white {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Efek transisi untuk opacity */
+    .transition-opacity {
+        transition: opacity 0.3s;
+    }
+</style>
+ 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </body>
 </html>
