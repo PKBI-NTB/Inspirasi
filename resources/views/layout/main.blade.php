@@ -40,7 +40,7 @@
 </nav>
     @yield('content')
 <!-- Footer -->
-<footer class="bg-primary-50 py-10 mt-12">
+<footer class="bg-white-50 py-10 mt-12">
     <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row items-start">
             
