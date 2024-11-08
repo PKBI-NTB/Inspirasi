@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeritaController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/beranda', function () {
+    return view('beranda.welcome');
 })->name('welcome');
 
 Route::get('/beranda', function () {
