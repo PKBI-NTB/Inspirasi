@@ -4,25 +4,29 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeritaController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/beranda', function () {
+    return view('beranda.welcome');
 })->name('welcome');
 
 Route::get('/beranda', function () {
-    return view('welcome');
+    return view('beranda.welcome');
 })->name('welcome');
 
 Route::get('/profile', function () {
-    return view('profile');
+    return view('profile.profile');
 })->name('profile');
 
 Route::get('/berita', function () {
-    return view('berita');
+    return view('berita.berita');
 })->name('berita');
 
 Route::get('/detailberita', function () {
-    return view('detailberita');
+    return view('berita.detailberita');
 })->name('detailberita');
+
+Route::get('/layanan', function () {
+    return view('layanan.layanan');
+})->name('layanan');
 
 Route::get('/program', function () {
     $programs = [
@@ -83,8 +87,3 @@ Route::get('/program/detail', function () {
 })->name('program.detail');
 
 Auth::routes();
-
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::resource('berita', BeritaController::class);
-});

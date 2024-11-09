@@ -10,24 +10,24 @@
     <!-- Bagian bawah dengan dua kolom -->
     <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
       
-      <!-- Kolom Kiri: Sub Materi -->
-      <div class="lg:col-span-1">
-        <!-- Bagian atas dengan background kuning -->
-        <div class="bg-[#feed00] p-6 rounded-t-lg shadow-lg">
-          <h3 class="text-xl font-bold text-black">Sub Materi</h3>
+        <!-- Kolom Kiri: Sub Materi (Sticky) -->
+        <div class="lg:col-span-1 sticky top-0">
+          <!-- Bagian atas dengan background kuning -->
+          <div class="bg-secondary-500 p-6 rounded-t-lg shadow-lg">
+              <h3 class="text-xl font-bold text-black">Sub Materi</h3>
+          </div>
+  
+          <!-- Bagian bawah dengan background kuning keputihan -->
+          <div class="bg-secondary-50 p-6 rounded-b-lg shadow-lg">
+              <ul class="space-y-2">
+                  <li><a href="#sejarah" class="text-black hover:text-blue-600">Sejarah Singkat</a></li>
+                  <li><a href="#visi-misi" class="text-black hover:text-blue-600">Visi & Misi</a></li>
+                  <li><a href="#pengurus" class="text-black hover:text-blue-600">Pengurus</a></li>
+                  <li><a href="#struktur" class="text-black hover:text-blue-600">Struktur Organisasi</a></li>
+                  <li><a href="#isu-strategis" class="text-black hover:text-blue-600">5 Isu Strategis</a></li>
+              </ul>
+          </div>
         </div>
-        
-        <!-- Bagian bawah dengan background kuning keputihan -->
-        <div class="bg-yellow-50 p-6 rounded-b-lg shadow-lg">
-          <ul class="space-y-2">
-            <li><a href="#sejarah" class="text-black hover:text-blue-600">Sejarah Singkat</a></li>
-            <li><a href="#visi-misi" class="text-black hover:text-blue-600">Visi & Misi</a></li>
-            <li><a href="#pengurus" class="text-black hover:text-blue-600">Pengurus</a></li>
-            <li><a href="#struktur" class="text-black hover:text-blue-600">Struktur Organisasi</a></li>
-            <li><a href="#isu-strategis" class="text-black hover:text-blue-600">5 Isu Strategis</a></li>
-          </ul>
-        </div>
-      </div>
       
   
       <!-- Kolom Kanan: Sejarah, Visi Misi, Pengurus, dll -->
@@ -121,21 +121,21 @@
                             <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
                                 <img src="img/profile.jpg" alt="Pengurus 1" class="w-full h-60 object-cover">
                                 <div class="p-4 bg-blue-900">
-                                    <h3 class="text-yellow-400 font-semibold text-lg">Nama Pengurus 1</h3>
+                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 1</h3>
                                     <p class="text-white">Posisi</p>
                                 </div>
                             </div>
                             <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
                                 <img src="img/profile.jpg" alt="Pengurus 2" class="w-full h-60 object-cover">
                                 <div class="p-4 bg-blue-900">
-                                    <h3 class="text-yellow-400 font-semibold text-lg">Nama Pengurus 2</h3>
+                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 2</h3>
                                     <p class="text-white">Posisi</p>
                                 </div>
                             </div>
                             <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
                                 <img src="img/profile.jpg" alt="Pengurus 3" class="w-full h-60 object-cover">
                                 <div class="p-4 bg-blue-900">
-                                    <h3 class="text-yellow-400 font-semibold text-lg">Nama Pengurus 3</h3>
+                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 3</h3>
                                     <p class="text-white">Posisi</p>
                                 </div>
                             </div>
@@ -146,21 +146,21 @@
                             <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
                                 <img src="img/profile.jpg" alt="Pengurus 4" class="w-full h-60 object-cover">
                                 <div class="p-4 bg-blue-900">
-                                    <h3 class="text-yellow-400 font-semibold text-lg">Nama Pengurus 4</h3>
+                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 4</h3>
                                     <p class="text-white">Posisi</p>
                                 </div>
                             </div>
                             <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
                                 <img src="img/profile.jpg" alt="Pengurus 5" class="w-full h-60 object-cover">
                                 <div class="p-4 bg-blue-900">
-                                    <h3 class="text-yellow-400 font-semibold text-lg">Nama Pengurus 5</h3>
+                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 5</h3>
                                     <p class="text-white">Posisi</p>
                                 </div>
                             </div>
                             <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
                                 <img src="img/profile.jpg" alt="Pengurus 6" class="w-full h-60 object-cover">
                                 <div class="p-4 bg-blue-900">
-                                    <h3 class="text-yellow-400 font-semibold text-lg">Nama Pengurus 6</h3>
+                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 6</h3>
                                     <p class="text-white">Posisi</p>
                                 </div>
                             </div>
@@ -168,14 +168,14 @@
                     </div>
         
                     <!-- Tombol Prev -->
-                    <button id="prevButton" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-yellow-500 p-2 rounded-full hover:bg-yellow-600 transition-colors">
+                    <button id="prevButton" class="absolute left-3 top-1/2 transform -translate-y-1/2 bg-secondary-500 p-2 rounded-full hover:bg-secondary-600 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
         
                     <!-- Tombol Next -->
-                    <button id="nextButton" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-yellow-500 p-2 rounded-full hover:bg-yellow-600 transition-colors">
+                    <button id="nextButton" class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-secondary-500 p-2 rounded-full hover:bg-secondary-600 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
@@ -204,8 +204,8 @@
             </div>
         
           <div class="grid grid-cols-3 gap-6">
-            <div class="bg-yellow-200 p-4 rounded-lg shadow-md">Pengawas</div>
-            <div class="bg-yellow-300 p-4 rounded-lg shadow-md">Direktur</div>
+            <div class="bg-secondary-200 p-4 rounded-lg shadow-md">Pengawas</div>
+            <div class="bg-secondary-300 p-4 rounded-lg shadow-md">Direktur</div>
             <div class="bg-gray-400 p-4 rounded-lg shadow-md">Divisi-divisi</div>
           </div>
         </div>
@@ -251,10 +251,10 @@
                 </div>
         
                 <!-- Isu Strategis 4 -->
-                <div class="flex bg-yellow-200 p-6 rounded-lg shadow-md">
-                    <div class="flex-shrink-0 w-16 h-16 bg-yellow-400 flex items-center justify-center rounded-full text-white text-3xl">4</div>
+                <div class="flex bg-secondary-200 p-6 rounded-lg shadow-md">
+                    <div class="flex-shrink-0 w-16 h-16 bg-secondary-600 flex items-center justify-center rounded-full text-white text-3xl">4</div>
                     <div class="ml-6 text-left">
-                        <h3 class="text-xl font-semibold text-yellow-600">Partisipasi Perempuan dalam Kepemimpinan</h3>
+                        <h3 class="text-xl font-semibold text-secondary-600">Partisipasi Perempuan dalam Kepemimpinan</h3>
                         <p class="text-gray-700">Peningkatan partisipasi perempuan dalam pengambilan keputusan menjadi prioritas untuk mencapai keseimbangan gender di semua sektor.</p>
                     </div>
                 </div>
@@ -306,15 +306,14 @@
 
     function updateIndicators() {
         document.getElementById('indicator1').classList.toggle('bg-gray-400', currentIndex !== 0);
-        document.getElementById('indicator1').classList.toggle('bg-yellow-500', currentIndex === 0);
+        document.getElementById('indicator1').classList.toggle('bg-secondary-500', currentIndex === 0);
 
         document.getElementById('indicator2').classList.toggle('bg-gray-400', currentIndex !== 1);
-        document.getElementById('indicator2').classList.toggle('bg-yellow-500', currentIndex === 1);
+        document.getElementById('indicator2').classList.toggle('bg-secondary-500', currentIndex === 1);
     }
 
     // Inisialisasi posisi carousel
     updateCarousel();
 </script>
-
 
 @endsection

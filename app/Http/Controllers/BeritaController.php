@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-//import return type redirectResponse
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
 
 class BeritaController extends Controller
 {

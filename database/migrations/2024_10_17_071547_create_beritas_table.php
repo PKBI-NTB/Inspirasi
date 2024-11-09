@@ -17,8 +17,6 @@ return new class extends Migration
             $table->string('penulis');
             $table->string('tanggal');
             $table->string('image');
-            $table->text('deskripsi');
-            $table->string(column: 'tags');
             $table->timestamps();
         });
     }
