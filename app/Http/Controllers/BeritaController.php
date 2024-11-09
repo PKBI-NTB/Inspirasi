@@ -5,12 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-//import return type redirectResponse
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
-=======
->>>>>>> 8a7525b (1)
 
 class BeritaController extends Controller
 {
@@ -25,7 +19,6 @@ class BeritaController extends Controller
         $berita = Berita::latest()->paginate(10);
 
         //render view with Berita
-<<<<<<< HEAD
         return view('admin.berita.berita', compact('berita'));
     }
 
@@ -180,8 +173,5 @@ class BeritaController extends Controller
 
         //redirect to index
         return redirect()->route('admin.berita.index')->with(['success' => 'Data Berhasil Dihapus!']);
-=======
-        return view('admin.berita', compact('berita'));
->>>>>>> 8a7525b (1)
     }
 }

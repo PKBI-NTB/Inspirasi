@@ -87,5 +87,3 @@ Route::get('/program/detail', function () {
 })->name('program.detail');
 
 Auth::routes();
-
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
