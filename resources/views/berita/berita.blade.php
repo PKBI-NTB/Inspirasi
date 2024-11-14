@@ -72,168 +72,72 @@
         </div>
     </div>
 
+    {{-- berita utama --}}
     <div class="flex flex-col md:flex-row items-center justify-between mt-20 p-28 pt-0 px-24 pb-0">
-        <!-- Bagian Gambar -->
-        <div class="md:w-1/2">
-            <img src="{{ asset('img/berita2.png') }}" alt="Berita Image" class="rounded-lg w-full h-auto max-w-xl">
-        </div>
-    
-        <!-- Bagian Teks -->
-        <div class="md:w-1/2 pl-6">
-            <p class="text-primary-800 font-semibold">InSPIRASI Group • 20 September 2024</p>
-            <h2 class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
-                Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat
-            </h2>
-            <p class="text-gray-500 dark:text-gray-400 mt-2">
-                Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia. TB adalah suatu penyakit bakteri menular...
-            </p>
-    
-            <!-- Tag Buttons -->
-            <div class="mt-4 space-x-2">
-                <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Eliminasi TB</a>
-                <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Kegiatan InSPIRASI</a>
-            </div>
-        </div>
+        @if($beritaTerbaru)
+            <a href="{{ route('detailberita.show', $beritaTerbaru->id) }}" class="flex md:w-full">
+                <div class="md:w-1/2">
+                    <img src="{{ asset('storage/berita/' . $beritaTerbaru->image) }}" alt="Berita Image" class="w-auto h-auto">
+                </div>
+                <div class="md:w-1/2 pl-6">
+                    <p class="text-primary-800 font-semibold">{{ $beritaTerbaru->penulis }} • {{ $beritaTerbaru->tanggal }}</p>
+                    <h2 class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">{{ $beritaTerbaru->judul }}</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-2">{{ Str::limit($beritaTerbaru->deskripsi, 150) }}...</p>
+                    <div class="mt-4 space-x-2">
+                        @foreach(explode(',', $beritaTerbaru->tags) as $tag)
+                            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">{{ trim($tag) }}</span>
+                        @endforeach
+                    </div>
+                </div>
+            </a>
+        @endif
     </div>
-
-    <!-- Bagian Kartu Berita di bawah -->
-<div class="mt-12 px-24 p-28 pt-0 pb-0">
-    <h2 class="text-2xl font-bold mb-4">Semua Postingan Berita</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Kartu Berita 1 -->
-        <div class="border rounded-lg shadow-lg overflow-hidden">
-            <img src="{{ asset('img/berita1.png') }}" alt="Berita Image" class="w-full h-auto">
-            <div class="p-4">
-                <p class="text-primary-800 font-semibold">InSPIRASI Group • 20 September 2024</p>
-                <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white">
-                    Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat
-                </h3>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia. TB adalah suatu penyakit bakteri menular...
-                </p>
-
-                <!-- Tag Buttons -->
-                <div class="mt-4 space-x-2">
-                    <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Eliminasi TB</a>
-                <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Kegiatan InSPIRASI</a>
-                </div>
-            </div>
+    
+    {{-- list Berita --}}
+    <div class="mt-20 p-8">
+        <h2 class="text-2xl font-bold mb-4">Semua Postingan Berita</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach ($beritaLainnya as $item)
+                <a href="{{ route('detailberita.show', $item->id) }}" class="border rounded-lg shadow-lg overflow-hidden block">
+                    <img src="{{ asset('storage/berita/' . $item->image) }}" alt="Berita Image" class="w-full h-auto">
+                    <div class="p-4">
+                        <p class="text-primary-800 font-semibold">{{ $item->penulis }} • {{ $item->tanggal }}</p>
+                        <h3 class="text-lg font-bold">{{ $item->judul }}</h3>
+                        <p class="text-gray-500 mt-2">{{ Str::limit($item->deskripsi, 100) }}</p>
+                        <div class="mt-4 space-x-2">
+                            @foreach(explode(',', $item->tags) as $tag)
+                                <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">{{ trim($tag) }}</span>
+                            @endforeach
+                        </div>
+                    </div>
+                </a>
+            @endforeach
         </div>
-
-        <!-- Kartu Berita 2 (duplikat) -->
-        <div class="border rounded-lg shadow-lg overflow-hidden">
-            <img src="{{ asset('img/berita1.png') }}" alt="Berita Image" class="w-full h-auto">
-            <div class="p-4">
-                <p class="text-primary-800 font-semibold">InSPIRASI Group • 20 September 2024</p>
-                <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white">
-                    Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat
-                </h3>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia. TB adalah suatu penyakit bakteri menular...
-                </p>
-
-                <!-- Tag Buttons -->
-                <div class="mt-4 space-x-2">
-                    <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Eliminasi TB</a>
-                <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Kegiatan InSPIRASI</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kartu Berita 3 (duplikat) -->
-        <div class="border rounded-lg shadow-lg overflow-hidden">
-            <img src="{{ asset('img/berita1.png') }}" alt="Berita Image" class="w-full h-auto">
-            <div class="p-4">
-                <p class="text-primary-800 font-semibold">InSPIRASI Group • 20 September 2024</p>
-                <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white">
-                    Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat
-                </h3>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia. TB adalah suatu penyakit bakteri menular...
-                </p>
-
-                <!-- Tag Buttons -->
-                <div class="mt-4 space-x-2">
-                    <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Eliminasi TB</a>
-                <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Kegiatan InSPIRASI</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kartu Berita 4 (duplikat) -->
-        <div class="border rounded-lg shadow-lg overflow-hidden">
-            <img src="{{ asset('img/berita1.png') }}" alt="Berita Image" class="w-full h-auto">
-            <div class="p-4">
-                <p class="text-primary-800 font-semibold">InSPIRASI Group • 20 September 2024</p>
-                <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white">
-                    Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat
-                </h3>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia. TB adalah suatu penyakit bakteri menular...
-                </p>
-
-                <!-- Tag Buttons -->
-                <div class="mt-4 space-x-2">
-                    <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Eliminasi TB</a>
-                <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Kegiatan InSPIRASI</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kartu Berita 5 (duplikat) -->
-        <div class="border rounded-lg shadow-lg overflow-hidden">
-            <img src="{{ asset('img/berita1.png') }}" alt="Berita Image" class="w-full h-auto">
-            <div class="p-4">
-                <p class="text-primary-800 font-semibold">InSPIRASI Group • 20 September 2024</p>
-                <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white">
-                    Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat
-                </h3>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia. TB adalah suatu penyakit bakteri menular...
-                </p>
-
-                <!-- Tag Buttons -->
-                <div class="mt-4 space-x-2">
-                    <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Eliminasi TB</a>
-                <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Kegiatan InSPIRASI</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kartu Berita 6 (duplikat) -->
-        <div class="border rounded-lg shadow-lg overflow-hidden">
-            <img src="{{ asset('img/berita1.png') }}" alt="Berita Image" class="w-full h-auto">
-            <div class="p-4">
-                <p class="text-primary-800 font-semibold">InSPIRASI Group • 20 September 2024</p>
-                <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white">
-                    Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat
-                </h3>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia. TB adalah suatu penyakit bakteri menular...
-                </p>
-
-                <!-- Tag Buttons -->
-                <div class="mt-4 space-x-2">
-                   <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Eliminasi TB</a>
-                <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Kegiatan InSPIRASI</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    </div>    
+    
+</body>
 
 <div class="flex justify-between items-center px-24 mt-8">
-    <a href="#" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Sebelumnya</a>
+    @if($beritaLainnya->previousPageUrl())
+        <a href="{{ $beritaLainnya->previousPageUrl() }}" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Sebelumnya</a>
+    @else
+        <span class="p-2 px-3 bg-gray-300 font-bold rounded-lg shadow text-gray-500">Sebelumnya</span>
+    @endif
+
     <div class="flex gap-4 items-center">
-        <a href="#" class="text-primary-600">1</a>
-        <a href="#" class="text-gray-600">2</a>
-        <a href="#" class="text-gray-600">...</a>
-        <a href="#" class="text-gray-600">5</a>
-        <a href="#" class="text-gray-600">6</a>
+        @for($i = 1; $i <= $beritaLainnya->lastPage(); $i++)
+            <a href="{{ $beritaLainnya->url($i) }}" class="{{ $beritaLainnya->currentPage() == $i ? 'text-primary-600' : 'text-gray-600' }}">
+                {{ $i }}
+            </a>
+        @endfor
     </div>
-    <a href="#" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Selanjutnya</a>
- </div>
+
+    @if($beritaLainnya->nextPageUrl())
+        <a href="{{ $beritaLainnya->nextPageUrl() }}" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Selanjutnya</a>
+    @else
+        <span class="p-2 px-3 bg-gray-300 font-bold rounded-lg shadow text-gray-500">Selanjutnya</span>
+    @endif
+</div>
 
 <!-- Footer -->
 <footer class="bg-white-50 py-10 mt-12">
@@ -282,8 +186,5 @@
 <div  class="bg-primary-900 text-center mt-0 text-white-50 text-bold py-2">
     ©Copyright Institut Perempuan untuk Perubahan Sosial
 </div>
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </html>

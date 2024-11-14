@@ -36,7 +36,9 @@
                                             <td class="text-center">
                                                 <img src="{{ Storage::url('berita/'.$item->image) }}" class="rounded" style="width: 150px;">
                                             </td>
-                                            <td>{{ $item->deskripsi }}</td>
+                                            <td style="display: -webkit-box; -webkit-line-clamp: 10; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
+                                                {{ $item->deskripsi }}
+                                            </td>                                            
                                             <td>{{ $item->tags }}</td>
                                             <td class="text-center">
                                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('admin.berita.destroy', $item->id) }}" method="POST">
@@ -58,7 +60,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{ $berita->links() }}
+                        {{ $berita->onEachSide(1)->links('pagination::bootstrap-5') }}
                     </div>
                 </div>
             </div>

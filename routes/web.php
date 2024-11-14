@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DetailBeritaController;
 
-Route::get('/beranda', function () {
+Route::get('/', function () {
     return view('beranda.welcome');
 })->name('welcome');
 
@@ -87,3 +88,11 @@ Route::get('/program/detail', function () {
 })->name('program.detail');
 
 Auth::routes();
+
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('berita', BeritaController::class);
+});
+
+Route::get('/detailberita/{id}', [BeritaController::class, 'publicShow'])->name('detailberita.show');
+
