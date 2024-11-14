@@ -295,58 +295,35 @@
   
     <!-- News Cards Section -->
     <div class="container max-w-screen-xl mx-auto mt-12 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-4">
-      <!-- Card 1 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img src="img/crowsel.png" alt="Berita InSPIRASI" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="text-blue-500 text-sm font-semibold">InSPIRASI Group • 20 September 2024</div>
-          <h3 class="text-xl font-bold mt-2">Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat</h3>
-          <p class="text-gray-700 mt-2">Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia...</p>
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-sm">Eliminasi TB</span>
-            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-sm">Kegiatan InSPIRASI</span>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Card 2 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img src="img/crowsel.png" alt="Berita InSPIRASI" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="text-blue-500 text-sm font-semibold">InSPIRASI Group • 20 September 2024</div>
-          <h3 class="text-xl font-bold mt-2">Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat</h3>
-          <p class="text-gray-700 mt-2">Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia...</p>
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-sm">Eliminasi TB</span>
-            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-sm">Kegiatan InSPIRASI</span>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Card 3 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img src="img/crowsel.png" alt="Berita InSPIRASI" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="text-blue-500 text-sm font-semibold">InSPIRASI Group • 20 September 2024</div>
-          <h3 class="text-xl font-bold mt-2">Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat</h3>
-          <p class="text-gray-700 mt-2">Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia...</p>
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-sm">Eliminasi TB</span>
-            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-sm">Kegiatan InSPIRASI</span>
-          </div>
-        </div>
-      </div>
+        @foreach ($beritaLainnya as $item)
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden h-auto">
+                <!-- Adjusted image styling -->
+                <a href="{{ route('detailberita.show', $item->id) }}" class="border rounded-lg shadow-lg overflow-hidden block">
+                    <div class="w-full h-90 bg-white-400">
+                        <img src="{{ asset('storage/berita/' . $item->image) }}" alt="Berita Image" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-6">
+                        <p class="text-blue-500 text-sm font-semibold">{{ $item->penulis }} • {{ $item->tanggal }}</p>
+                        <h3 class="text-xl font-bold mt-2">{{ $item->judul }}</h3>
+                        <p class="text-gray-700 mt-2">{{ Str::limit($item->deskripsi, 100) }}</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            @foreach(explode(',', $item->tags) as $tag)
+                                <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-sm">{{ trim($tag) }}</span>
+                            @endforeach
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endforeach
     </div>
-  
+        
     <!-- Button Section -->
     <div class="text-center mt-8">
-      <a href="#" class="bg-secondary-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-secondary-500">
-        Lihat Selengkapnya
-      </a>
+        <a href="{{ route('berita') }}" class="bg-secondary-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-secondary-500">
+            Lihat Selengkapnya
+        </a>
     </div>
-  </section>
-  
-
+</body>
 
 <!-- Footer -->
 <footer class="bg-white-50 py-10 mt-12">
@@ -392,9 +369,10 @@
         </div>
     </div>
 </footer>
+
 <div  class="bg-primary-900 text-center mt-0 text-white-50 text-bold py-2">
     ©Copyright Institut Perempuan untuk Perubahan Sosial
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 
-</body>
 </html>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Carbon\Carbon;
 class BeritaController extends Controller
 {
     /**
@@ -13,12 +15,12 @@ class BeritaController extends Controller
      *
      * @return void
      */
-    public function index() : View
+    public function index(): View
     {
-        //get all berita
+        // Get all berita
         $berita = Berita::latest()->paginate(10);
 
-        //render view with Berita
+        // Return the view for admin and public, passing the same $berita
         return view('admin.berita.berita', compact('berita'));
     }
 
@@ -40,33 +42,35 @@ class BeritaController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        //validate form
+        // Validate form
         $request->validate([
-            'judul'         => 'required|min:5',
-            'penulis'       => 'required|min:5',
-            'tanggal'       => 'required',
-            'image'         => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'deskripsi'     => 'required|min:10',
-            'tags'          => 'required|min:5'
+            'judul' => 'required|min:5',
+            'penulis' => 'required|min:5',
+            'tanggal' => 'required|date', // Validasi tanggal
+            'image' => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'deskripsi' => 'required|min:10',
+            'tags' => 'required|min:5'
         ]);
 
-        //upload image
-        $image = $request->file(key: 'image');
+        // Format tanggal
+        $formattedDate = Carbon::parse($request->tanggal)->locale('id')->translatedFormat('l, d F Y');
+
+        // Upload image
+        $image = $request->file('image');
         $image->storeAs('berita', $image->hashName(), 'public');
 
-        //create berita
+        // Create berita
         Berita::create([
-            'judul'         => $request->judul,
-            'penulis'       => $request->penulis,
-            'tanggal'       => $request->tanggal,
-            'image'         => $image->hashName(),
-            'deskripsi'     => $request->deskripsi,
-            'tags'          => $request->tags,
+            'judul' => $request->judul,
+            'penulis' => $request->penulis,
+            'tanggal' => $formattedDate, // Simpan tanggal yang sudah diformat
+            'image' => $image->hashName(),
+            'deskripsi' => $request->deskripsi,
+            'tags' => $request->tags,
         ]);
 
-        //redirect to index
+        // Redirect to index
         return redirect()->route('admin.berita.index')->with(['success' => 'Data Berhasil Disimpan!']);
-
     }
 
     /**
@@ -77,10 +81,10 @@ class BeritaController extends Controller
      */
     public function show(string $id): View
     {
-        //get berita by ID
+        // Get berita by ID
         $berita = Berita::findOrFail($id);
 
-        //render view with berita
+        // Render view with berita
         return view('admin.berita.show', compact('berita'));
     }
 
@@ -92,13 +96,13 @@ class BeritaController extends Controller
      */
     public function edit(string $id): View
     {
-        //get berita by ID
+        // Get berita by ID
         $berita = Berita::findOrFail($id);
 
-        //render view with berita
+        // Render view with berita
         return view('admin.berita.edit', compact('berita'));
     }
-        
+
     /**
      * update
      *
@@ -110,43 +114,46 @@ class BeritaController extends Controller
     {
         // Validate form
         $request->validate([
-            'judul'         => 'required|min:5',
-            'penulis'       => 'required|min:5',
-            'tanggal'       => 'required',
-            'image'         => 'nullable|image|mimes:jpeg,jpg,png|max:2048', // Make image optional
-            'deskripsi'     => 'required|min:10',
-            'tags'          => 'required|min:5'
+            'judul' => 'required|min:5',
+            'penulis' => 'required|min:5',
+            'tanggal' => 'required|date', // Validasi tanggal
+            'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048', // Make image optional
+            'deskripsi' => 'required|min:10',
+            'tags' => 'required|min:5'
         ]);
 
         // Get berita by ID
         $berita = Berita::findOrFail($id);
 
+        // Format tanggal
+        $formattedDate = Carbon::parse($request->tanggal)->locale('id')->translatedFormat('l, d F Y');
+
         // Check if image is uploaded
         if ($request->hasFile('image')) {
             // Upload new image
             $image = $request->file('image');
-            $image->storeAs('berita', $image->hashName(), 'public');
+            $image->storeAs('berita', $image ->hashName(), 'public');
 
             // Delete old image
             Storage::delete('public/berita/' . $berita->image);
 
             // Update berita with new image
             $berita->update([
-                'judul'         => $request->judul,
-                'penulis'       => $request->penulis,
-                'tanggal'       => $request->tanggal,
-                'image'         => $image->hashName(),
-                'deskripsi'     => $request->deskripsi,
-                'tags'          => $request->tags,
+                'judul' => $request->judul,
+                'penulis' => $request->penulis,
+                'tanggal' => $formattedDate, // Simpan tanggal yang sudah diformat
+                'image' => $image->hashName(),
+                'deskripsi' => $request->deskripsi,
+                'tags' => $request->tags,
             ]);
         } else {
             // Update berita without changing the image
             $berita->update([
-                'judul'         => $request->judul,
-                'penulis'       => $request->penulis,
-                'tanggal'       => $request->tanggal,
-                'deskripsi'     => $request->deskripsi,
-                'tags'          => $request->tags,
+                'judul' => $request->judul,
+                'penulis' => $request->penulis,
+                'tanggal' => $formattedDate, // Simpan tanggal yang sudah diformat
+                'deskripsi' => $request->deskripsi,
+                'tags' => $request->tags,
             ]);
         }
 
@@ -162,16 +169,30 @@ class BeritaController extends Controller
      */
     public function destroy($id): RedirectResponse
     {
-        //get berita by ID
+        // Get berita by ID
         $berita = Berita::findOrFail($id);
 
-        //delete image
+        // Delete image
         Storage::delete('public/berita/' . $berita->image);
 
-        //delete berita
+        // Delete berita
         $berita->delete();
 
-        //redirect to index
+        // Redirect to index
         return redirect()->route('admin.berita.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
+
+    /**
+     * Public show method to show a single berita
+     * 
+     * @param string $id
+     * @return View
+     */
+    public function publicShow(string $id): View
+    {
+        // Get berita by ID for public view
+        $berita = Berita::findOrFail($id);
+        return view('berita.detailberita', compact('berita'));
+    }
+    
 }

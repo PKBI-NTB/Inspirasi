@@ -58,86 +58,49 @@
 
     <div class="px-28 pt-28">
         <div class="mb-6">
-          <h1 class="text-6xl font-bold text-black-950 mb-4 px-28">Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat</h1>
-          <p class="text-gray-600 mb-2 pl-28">Oleh InSPIRASI Group</p>
-          <p class="text-gray-600 pl-28">Jum'at, 20 September 2024</p>
+            <!-- Judul Berita -->
+            <h1 class="text-6xl font-bold text-black-950 mb-4 px-28">{{ $berita->judul }}</h1>
+            <!-- Penulis dan Tanggal Berita -->
+            <p class="text-gray-600 mb-2 pl-28">Oleh {{ $berita->penulis }}</p>
+            <p class="text-gray-600 pl-28">{{ ($berita->tanggal) }}</p>
         </div>
+    
+        <!-- Gambar Utama Berita -->
         <div class="relative mb-6">
-            <img src="{{ asset('img/berita1.png') }}" alt="Komitmen Bersama InSPIRASI dan Kader TB" class="w-full h-1/5 object-cover rounded-lg shadow-lg">
+            <img src="{{ asset('storage/berita/' . $berita->image) }}" alt="{{ $berita->judul }}" class="w-full h-1/5 object-cover rounded-lg shadow-lg">
         </div>
         <hr>
+    
+        <!-- Isi Berita -->
         <div>
-            <p class="pt-4">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos alias repellat hic laboriosam, similique tenetur? Repudiandae necessitatibus possimus hic sunt vel! Sapiente natus rerum harum dolor architecto modi, cupiditate amet repellat delectus quod, reiciendis odit impedit itaque, praesentium sequi? Deserunt illum at praesentium atque ullam perspiciatis, tenetur ea fuga optio minus fugit perferendis vero tempore vitae odit rem voluptatibus, dolore iure alias non esse veritatis repellendus eligendi. Minus, modi accusantium numquam commodi placeat odio! Ut error inventore adipisci enim! Iure libero velit ea! Facilis, quidem nisi iusto quia excepturi magnam. Quidem, laboriosam soluta, sunt numquam mollitia libero dolorum quia vitae commodi assumenda tenetur ullam ex voluptas nulla tempora sapiente, doloremque maxime maiores laudantium! Unde enim dolorem inventore nesciunt doloribus placeat voluptatibus deleniti mollitia harum praesentium, eius laborum repudiandae alias vitae in eum perferendis vero corrupti sapiente voluptatum eaque accusantium architecto dolore magnam! Laudantium asperiores harum veritatis possimus architecto voluptatem ipsum, amet similique rem quae sapiente facilis est reiciendis maiores cum sint qui id eaque ea. Corporis veniam accusamus delectus deserunt aliquam ad animi sint officia minima nisi, laborum repellendus eaque temporibus explicabo consequatur possimus? Maiores facilis odit minima labore molestias iste nostrum sed expedita adipisci aliquam! Consequuntur eius dignissimos deleniti sed ea adipisci corrupti, in necessitatibus vel. Non hic natus ut nostrum totam vel, nam iure ipsum in provident qui voluptatibus commodi rerum cumque repellat alias deserunt, repudiandae, aliquid voluptas harum sit? Dolorem a officiis non rerum velit nam aspernatur impedit sit perspiciatis quae saepe quis praesentium sapiente, id quia nesciunt delectus iusto, necessitatibus ab sunt consequuntur qui doloremque placeat! Dolores ex quisquam iusto est non ipsum unde tempora at, voluptas quo! Quas quisquam quae pariatur aliquid labore ut, numquam laboriosam perferendis natus id nesciunt error provident iste fugit enim sunt omnis corrupti deleniti vitae laudantium in distinctio quod aspernatur facere. Perferendis, architecto. Aspernatur inventore sequi, porro beatae placeat reiciendis. Doloribus illum vel assumenda et exercitationem molestias sequi. Nemo modi recusandae ab corrupti earum voluptatem distinctio voluptatibus natus deleniti unde dolore facere hic obcaecati eos adipisci porro laudantium vero totam repellat illum, vitae inventore labore?
+            <p class="pt-4 pl-28 pr-28" style="text-align: justify;">
+                {{ $berita->deskripsi }}
             </p>
         </div>
-    </div>
+    </div>    
     
     <!-- Bagian Kartu Berita di bawah -->
 <div class="mt-12 p-28 pt-0 pb-0">
     <h2 class="text-2xl font-bold mb-4">Berita Terkait</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Kartu Berita 1 -->
-        <div class="border rounded-lg shadow-lg overflow-hidden">
-            <img src="{{ asset('img/berita1.png') }}" alt="Berita Image" class="w-full h-auto">
-            <div class="p-4">
-                <p class="text-primary-800 font-semibold">InSPIRASI Group • 20 September 2024</p>
-                <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white-50">
-                    Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat
-                </h3>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia. TB adalah suatu penyakit bakteri menular...
-                </p>
-
-                <!-- Tag Buttons -->
-                <div class="mt-4 space-x-2">
-                    <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Eliminasi TB</a>
-                <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Kegiatan InSPIRASI</a>
+        @foreach ($beritaLainnya as $item)
+            <a href="{{ route('detailberita.show', $item->id) }}" class="border rounded-lg shadow-lg overflow-hidden block">
+                <img src="{{ asset('storage/berita/' . $item->image) }}" alt="Berita Image" class="w-full h-auto">
+                <div class="p-4">
+                    <p class="text-primary-800 font-semibold">{{ $item->penulis }} • {{ $item->tanggal }}</p>
+                    <h3 class="text-lg font-bold">{{ $item->judul }}</h3>
+                    <p class="text-gray-500 mt-2">{{ Str::limit($item->deskripsi, 100) }}</p>
+                    <div class="mt-4 space-x-2">
+                        @foreach(explode(',', $item->tags) as $tag)
+                            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">{{ trim($tag) }}</span>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Kartu Berita 2 (duplikat) -->
-        <div class="border rounded-lg shadow-lg overflow-hidden">
-            <img src="{{ asset('img/berita1.png') }}" alt="Berita Image" class="w-full h-auto">
-            <div class="p-4">
-                <p class="text-primary-800 font-semibold">InSPIRASI Group • 20 September 2024</p>
-                <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white-50">
-                    Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat
-                </h3>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia. TB adalah suatu penyakit bakteri menular...
-                </p>
-
-                <!-- Tag Buttons -->
-                <div class="mt-4 space-x-2">
-                    <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Eliminasi TB</a>
-                <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Kegiatan InSPIRASI</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kartu Berita 3 (duplikat) -->
-        <div class="border rounded-lg shadow-lg overflow-hidden">
-            <img src="{{ asset('img/berita1.png') }}" alt="Berita Image" class="w-full h-auto">
-            <div class="p-4">
-                <p class="text-primary-800 font-semibold">InSPIRASI Group • 20 September 2024</p>
-                <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white-50">
-                    Komitmen Bersama InSPIRASI dan Kader TB dalam Upaya Eliminasi TB untuk Indonesia Sehat
-                </h3>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Angka kematian yang disebabkan oleh TB merupakan salah satu yang tertinggi di Dunia. TB adalah suatu penyakit bakteri menular...
-                </p>
-
-                <!-- Tag Buttons -->
-                <div class="mt-4 space-x-2">
-                    <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Eliminasi TB</a>
-                <a href="#" class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">Kegiatan InSPIRASI</a>
-                </div>
-            </div>
-        </div>
+            </a>
+        @endforeach
     </div>
+    
 </div>
 
 <!-- Footer -->

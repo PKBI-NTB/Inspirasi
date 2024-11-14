@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label class="font-weight-bold">Tags</label>
+                            <label class="font-weight-bold">Tags (Pisahkan dengan koma (,))</label>
                             <input type="text" class="form-control @error('tags') is-invalid @enderror" name="tags" value="{{ old('tags') }}" placeholder="Masukkan Tags">
                         
                             <!-- error message untuk tags -->
