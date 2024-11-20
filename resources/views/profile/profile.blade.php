@@ -102,7 +102,7 @@
         
 
         <!-- Pengurus -->
-        <section class="py-8 bg-white">
+        <section id="pengurus" class="py-8 bg-white">
             <div class="container mx-auto text-center">
                 <!-- Judul -->
                 <h2 class="text-4xl font-bold text-black  relative inline-block mb-8">
@@ -190,24 +190,9 @@
             </div>
         </section>
           
-          <!-- Struktur Organisasi -->
-        
-        
-          <div id="struktur" class="text-center p-6 bg-white rounded-lg shadow-lg">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold text-black relative inline-block mb-8">
-                    <span class="relative z-10">Struktur Organisasi</span>
-                    <!-- Background Effect for Title -->
-                    <span class="absolute inset-x-0 bottom-0 h-2 bg-blue-300 z-0"></span>
-                  </h2>
-                                
-            </div>
-        
-          <div class="grid grid-cols-3 gap-6">
-            <div class="bg-secondary-200 p-4 rounded-lg shadow-md">Pengawas</div>
-            <div class="bg-secondary-300 p-4 rounded-lg shadow-md">Direktur</div>
-            <div class="bg-gray-400 p-4 rounded-lg shadow-md">Divisi-divisi</div>
-          </div>
+        <!-- Gambar Struktur Organisasi -->
+        <div id="struktur" class="mt-8">
+            <img src="{{ asset('img/strukturorganisasi.png') }}" alt="Struktur Organisasi" class="mx-auto w-full max-w-4xl h-auto rounded-lg shadow-md">
         </div>
 
         <!-- 5 Isu Strategis -->
