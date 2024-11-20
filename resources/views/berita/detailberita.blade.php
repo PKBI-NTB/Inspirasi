@@ -80,28 +80,27 @@
     </div>    
     
     <!-- Bagian Kartu Berita di bawah -->
-<div class="mt-12 p-28 pt-0 pb-0">
-    <h2 class="text-2xl font-bold mb-4">Berita Terkait</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        @foreach ($beritaLainnya as $item)
-            <a href="{{ route('detailberita.show', $item->id) }}" class="border rounded-lg shadow-lg overflow-hidden block">
-                <img src="{{ asset('storage/berita/' . $item->image) }}" alt="Berita Image" class="w-full h-auto">
-                <div class="p-4">
-                    <p class="text-primary-800 font-semibold">{{ $item->penulis }} • {{ $item->tanggal }}</p>
-                    <h3 class="text-lg font-bold">{{ $item->judul }}</h3>
-                    <p class="text-gray-500 mt-2">{{ Str::limit($item->deskripsi, 100) }}</p>
-                    <div class="mt-4 space-x-2">
-                        @foreach(explode(',', $item->tags) as $tag)
-                            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">{{ trim($tag) }}</span>
-                        @endforeach
+    <div class="mt-12 p-28 pt-0 pb-0">
+        <h2 class="text-2xl font-bold mb-4">Berita Terkait</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach ($beritaTerkait as $item)
+                <a href="{{ route('detailberita.show', $item->id) }}" class="border rounded-lg shadow-lg overflow-hidden block">
+                    <img src="{{ asset('storage/berita/' . $item->image) }}" alt="Berita Image" class="w-full h-auto">
+                    <div class="p-4">
+                        <p class="text-primary-800 font-semibold">{{ $item->penulis }} • {{ $item->tanggal }}</p>
+                        <h3 class="text-lg font-bold">{{ $item->judul }}</h3>
+                        <p class="text-gray-500 mt-2">{{ Str::limit($item->deskripsi, 100) }}</p>
+                        <div class="mt-4 space-x-2">
+                            @foreach(explode(',', $item->tags) as $tag)
+                                <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">{{ trim($tag) }}</span>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-            </a>
-        @endforeach
+                </a>
+            @endforeach
+        </div>
     </div>
     
-</div>
 
 <!-- Footer -->
 <footer class="bg-white-50 py-10 mt-12">

@@ -313,7 +313,7 @@ return [
         ],
         [
             'text' => 'Program',
-            'url' => '#',
+            'url' => 'admin/program',
             'icon' => 'fas fa-fw fa-file-alt'
         ],
     ],

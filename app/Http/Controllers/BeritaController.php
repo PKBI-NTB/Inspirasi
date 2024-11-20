@@ -190,9 +190,24 @@ class BeritaController extends Controller
      */
     public function publicShow(string $id): View
     {
-        // Get berita by ID for public view
+        // Dapatkan berita berdasarkan ID
         $berita = Berita::findOrFail($id);
-        return view('berita.detailberita', compact('berita'));
+
+        // Pecah tags berita menjadi array
+        $tags = explode(',', $berita->tags);
+
+        // Ambil berita terkait berdasarkan kecocokan tags
+        $beritaTerkait = Berita::where('id', '!=', $berita->id)
+            ->where(function ($query) use ($tags) {
+                foreach ($tags as $tag) {
+                    $query->orWhere('tags', 'LIKE', '%' . trim($tag) . '%');
+                }
+            })
+            ->limit(6) // Batasi jumlah berita terkait
+            ->get();
+
+        // Kirim data ke view
+        return view('berita.detailberita', compact('berita', 'beritaTerkait'));
     }
     
 }
