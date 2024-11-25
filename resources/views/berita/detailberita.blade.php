@@ -10,7 +10,7 @@
         <!-- Tambahkan Google Fonts Poppins -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-        @vite('resources/css/app.css')
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     
         <style>
             body {
@@ -26,7 +26,7 @@
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-yellow-300 dark:hover:bg-yellow-400 dark:focus:ring-blue-800">Kontak</button>
+                <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-yellow-300 dark:hover:bg-yellow-400 dark:focus:ring-blue-800 shadow-lg hover:shadow-xl transition-shadow duration-300">Kontak</button>
                 <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -35,7 +35,7 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-white">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-white">
                     <li>
                         <a href="{{ route('welcome') }}" class="block py-2 px-3 text-black font-light rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-black dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beranda</a>
                     </li>
@@ -61,22 +61,51 @@
             <!-- Judul Berita -->
             <h1 class="text-6xl font-bold text-black-950 mb-4 px-28">{{ $berita->judul }}</h1>
             <!-- Penulis dan Tanggal Berita -->
-            <p class="text-gray-600 mb-2 pl-28">Oleh {{ $berita->penulis }}</p>
+            <p class="text-gray-600 mb-2 pl-28">Oleh InSPIRASI Group</p>
             <p class="text-gray-600 pl-28">{{ ($berita->tanggal) }}</p>
         </div>
     
         <!-- Gambar Utama Berita -->
-        <div class="relative mb-6">
-            <img src="{{ asset('storage/berita/' . $berita->image) }}" alt="{{ $berita->judul }}" class="w-full h-1/5 object-cover rounded-lg shadow-lg">
+        <div class="relative mb-2">
+            <img src="{{ asset('storage/berita/' . $berita->image) }}" alt="{{ $berita->judul }}" class="w-full h-1/5 object-cover rounded-lg ">
         </div>
+        
+        <div class="flex justify-end">
+            <p class="text-gray-600 mb-2 text-[14px]">{{ $berita->penulis }}</p>
+        </div>
+    
         <hr>
     
         <!-- Isi Berita -->
         <div>
-            <p class="pt-4 pl-28 pr-28" style="text-align: justify;">
+            <p class="mt-4 pt-4 px-28" style="text-align: justify;">
                 {{ $berita->deskripsi }}
             </p>
         </div>
+
+        <section class="px-28 mt-8">
+            <div class="relative bg-primary-900 text-white py-10 px-4">
+                <!-- Background Image -->
+                <div class="absolute inset-0">
+                    <img src="/img/beranda_biru.png" alt="Background Image" class="w-full h-full object-cover opacity-50">
+                </div>
+    
+                <!-- Overlay Content -->
+                <div class="text-justify relative z-10 px-8">
+                    <div class="text-left">
+                        <h2 class="text-5xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white-50">
+                            Temukan Jawaban untuk setiap Pertanyaanmu dengan Mudah!
+                        </h2>
+                    </div>
+                    <a href="{{ route('layanan') }}">
+                        <button class="mt-6 px-6 py-3 text-md font-bold text-black bg-secondary-400 hover:bg-secondary-500 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                            Hubungi InSPIRASI >
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
     </div>    
     
     <!-- Bagian Kartu Berita di bawah -->
@@ -87,7 +116,7 @@
                 <a href="{{ route('detailberita.show', $item->id) }}" class="border rounded-lg shadow-lg overflow-hidden block">
                     <img src="{{ asset('storage/berita/' . $item->image) }}" alt="Berita Image" class="w-full h-auto">
                     <div class="p-4">
-                        <p class="text-primary-800 font-semibold">{{ $item->penulis }} • {{ $item->tanggal }}</p>
+                        <p class="text-primary-800 font-semibold">InSPIRASI Group • {{ $item->tanggal }}</p>
                         <h3 class="text-lg font-bold">{{ $item->judul }}</h3>
                         <p class="text-gray-500 mt-2">{{ Str::limit($item->deskripsi, 100) }}</p>
                         <div class="mt-4 space-x-2">
@@ -152,5 +181,6 @@
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

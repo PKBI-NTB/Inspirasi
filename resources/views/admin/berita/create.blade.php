@@ -65,7 +65,7 @@
                             <label class="font-weight-bold">Deskripsi</label>
                             <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" rows="5" placeholder="Masukkan Deskripsi Berita">{{ old('deskripsi') }}</textarea>
                         
-                            <!-- error message untuk description -->
+                            <!-- error message untuk deskripsi -->
                             @error('deskripsi')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -96,13 +96,10 @@
 @stop
 
 @section('css')
-    {{-- Add here extra stylesheets --}}
+    {{-- Tambahkan CSS tambahan jika diperlukan --}}
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 @stop
 
 @section('js')
-    <script src="https://cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace('deskripsi');
-    </script>
+    <script src="//cdn.ckeditor.com/4.25.0-lts/full/ckeditor.js"></script>
 @stop

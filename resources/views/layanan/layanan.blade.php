@@ -10,7 +10,7 @@
         <!-- Tambahkan Google Fonts Poppins -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-        @vite('resources/css/app.css')
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     
         <style>
             body {
@@ -26,7 +26,7 @@
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-yellow-300 dark:hover:bg-yellow-400 dark:focus:ring-blue-800">Kontak</button>
+                <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-yellow-300 dark:hover:bg-yellow-400 dark:focus:ring-blue-800 shadow-lg hover:shadow-xl transition-shadow duration-300">Kontak</button>
                 <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -35,7 +35,7 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-white">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-white">
                     <li>
                         <a href="{{ route('welcome') }}" class="block py-2 px-3 text-black font-light rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-black dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beranda</a>
                     </li>
@@ -59,7 +59,7 @@
     <div class="pl-36 py-20 w-full grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         <div class="col-span-1 flex flex-col items-center md:items-start">
             <h1 class="text-3xl font-extrabold text-black text-center md:text-left">Hubungi kami untuk layanan terbaik dan bersama ciptakan dampak nyata bagi perubahan sosial!</h1>
-            <button class="bg-secondary-400 hover:bg-secondary-500 text-white font-bold py-2 px-4 rounded mt-6">
+            <button class="bg-secondary-400 hover:bg-secondary-500 text-white font-bold py-2 px-4 rounded mt-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
             Hubungi Kami Sekarang!
             </button>
         </div>
@@ -72,14 +72,13 @@
         <!-- Section Header -->
         <div class="max-w-screen-xl mx-auto text-center p-4">
           <!-- Title Section -->
-          <h2 class="text-4xl font-bold text-black relative inline-block">
-              <span class="relative z-10">Layanan Yang Kami Berikan</span>
-              <!-- Background Effect for Title -->
-              <span class="absolute inset-x-0 bottom-0 h-2 bg-blue-300 z-0"></span>
-          </h2>
-          <p class="mt-4 text-lg font-normal text-gray-700">
-            Temukan berbagai layanan untuk mendukung perubahan sosial yang berkelanjutan dan memberikan dampak nyata bagi masyarakat. Kami siap membantu Anda dengan solusi terbaik sesuai kebutuhan.
-          </p>
+            <div class="relative inline-block">
+                <span class="absolute inset-x-0 top-0 h-9 bg-primary-300"></span>
+                <h2 class="relative text-[48px] font-bold text-black">Layanan Yang Kami Berikan</h2>
+            </div>
+            <p class="mt-4 text-lg font-normal text-gray-700">
+                Temukan berbagai layanan untuk mendukung perubahan sosial yang berkelanjutan dan memberikan dampak nyata bagi masyarakat. Kami siap membantu Anda dengan solusi terbaik sesuai kebutuhan.
+            </p>
         </div>
       
         <!-- Card Grid -->
@@ -153,8 +152,6 @@
           <!-- Tambahkan kartu lainnya sesuai kebutuhan -->
         </div>
       </div>
-      
- 
 
 <!-- Footer -->
 <footer class="bg-white-50 py-10 mt-12">
@@ -237,5 +234,6 @@
 </style>
  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

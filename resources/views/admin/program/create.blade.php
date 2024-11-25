@@ -85,9 +85,15 @@
 
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">Mitra</label>
-                            <input type="text" class="form-control @error('mitra') is-invalid @enderror" name="mitra" value="{{ old('mitra') }}" placeholder="Masukkan Mitra Program">
-                        
-                            @error('mitra')
+                            <input 
+                                type="file" 
+                                class="form-control @error('mitra') is-invalid @enderror" 
+                                name="mitra[]" 
+                                multiple 
+                                accept="image/*"
+                            >
+                            
+                            @error('mitra.*')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>

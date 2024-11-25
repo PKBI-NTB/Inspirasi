@@ -10,7 +10,7 @@
         <!-- Tambahkan Google Fonts Poppins -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-        @vite('resources/css/app.css')
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     
         <style>
             body {
@@ -26,7 +26,7 @@
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-secondary-300 dark:hover:bg-secondary-400 dark:focus:ring-blue-800">Kontak</button>
+                <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-secondary-300 dark:hover:bg-secondary-400 dark:focus:ring-blue-800 shadow-lg hover:shadow-xl transition-shadow duration-300">Kontak</button>
                 <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -35,7 +35,7 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-white">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-white">
                     <li>
                         <a href="{{ route('welcome') }}" class="block py-2 px-3 text-black font-light rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-black dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beranda</a>
                     </li>
@@ -62,7 +62,7 @@
             <img src="{{ asset('img/program/slide-program.png') }}" alt="InSPIRASI NTB" class="w-full h-full object-cover">
             <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center pt-16">
                 <h1 class="md:text-5xl text-white-50 w-full md:w-[60%] text-center">
-                    <span class="text-[34px] mb-4 block">Program InSPIRASI</span> <b class="font-extrabold text-[48px] block">ISLEI</b>
+                    <span class="text-[34px] mb-4 block">Program InSPIRASI</span> <b class="font-extrabold text-[48px] block">{{ $program->nama_program }}</b>
                 </h1>
             </div>
         </div>
@@ -72,7 +72,7 @@
             <!-- left -->
             <div class="col-span-1 md:w-fit">
                 <div class="w-full h-[541px] md:w-[397px] md:h-[541px]">
-                    <img src="{{ asset('img/program/Rectangle 34625691.png') }}" alt="program" class="w-full h-full object-cover">
+                    <img src="{{ asset('storage/program/' . $program->image) }}" alt="program" class="w-full h-full object-cover">
                 </div>
             </div>
             
@@ -80,41 +80,41 @@
             <div class="col-span-1 md:w-full">
                 <!-- deskripsi -->
                  <div class="mb-6">
-                    <h1 class="text-2xl font-extrabold text-black">Program InSPIRASI ISLEI</h1>
-                    <p class="text-black text-lg mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt, risus in porttitor dapibus, lectus lorem efficitur eros, ac molestie nisi arcu in nunc. Sed nec vestibulum magna. Nullam blandit sem non varius viverra. Aliquam bibendum tellus sit amet quam pharetra, vel suscipit nisi vulputate. Donec malesuada eros vitae augue vehicula, non viverra eros hendrerit. Integer eu nulla vel arcu gravida scelerisque sed a odio. Morbi at posuere justo, ac sollicitudin est.
-                    <br>
-                    <br>
-                    Vestibulum venenatis odio sed nibh ullamcorper, nec sodales elit sagittis. Aliquam accumsan lorem et lacus scelerisque, quis fringilla elit sollicitudin. Aenean rhoncus felis et ultricies pretium. Cras et tincidunt urna, a iaculis dolor. Pellentesque dignissim volutpat ex, vitae congue felis tincidunt at. Mauris accumsan lorem vel felis sollicitudin pretium. Nam scelerisque, ligula at feugiat ultricies, mauris ante consequat neque, non feugiat purus est quis erat.
-                    </p>
+                    <h1 class="text-2xl font-extrabold text-black">Program InSPIRASI {{ $program->nama_program }}</h1>
+                    <p class="text-black text-lg mt-6">{{ $program->deskripsi }}</p>
                  </div>
                 <!-- tujuan program -->
                 <div class="mb-6">
                 <h1 class="text-2xl font-extrabold text-black">Tujuan Program</h1>
-                <p class="text-black text-lg mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt, risus in porttitor dapibus, lectus lorem efficitur eros, ac molestie nisi arcu in nunc. Sed nec vestibulum magna.</p>
+                <p class="text-black text-lg mt-6">{{ $program->tujuan }}</p>
                 </div>
 
                 <!-- Lokasi Program -->
                 <div class="mb-6">
                     <h1 class="text-2xl font-extrabold text-black">Lokasi Program</h1>
-                    <p class="text-black text-lg mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt, risus in porttitor dapibus, lectus lorem efficitur eros, ac molestie nisi arcu in nunc. Sed nec vestibulum magna.</p>
+                    <p class="text-black text-lg mt-6">{{ $program->lokasi }}</p>
                 </div>
 
                 <!-- Durasi Program -->
                 <div class="mb-6">
                     <h1 class="text-2xl font-extrabold text-black">Durasi Program</h1>
-                    <p class="text-black text-lg mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt, risus in porttitor dapibus, lectus lorem efficitur eros, ac molestie nisi arcu in nunc. Sed nec vestibulum magna.</p>
+                    <p class="text-black text-lg mt-6">{{ $program->durasi }}</p>
                 </div>
 
                 <!-- Mitra Program -->
                 <div class="mb-6">
                     <h1 class="text-2xl font-extrabold text-black">Mitra Program</h1>
-                    <p class="text-black text-lg mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt, risus in porttitor dapibus, lectus lorem efficitur eros, ac molestie nisi arcu in nunc. Sed nec vestibulum magna.</p>
-
-                    <!-- Mitra -->
-                    <div class="flex items-center mt-6">
-                        <img src="{{ asset('img/mitra-1.png') }}" alt="mitra">
+                    <div class="flex flex-wrap mt-6 gap-4"> <!-- Gap diperbesar -->
+                        @foreach (json_decode($program->mitra, true) as $mitraImage)
+                            <div class="flex-none">
+                                <img src="{{ asset('storage/program/mitra/' . $mitraImage) }}" 
+                                     alt="Mitra Image" 
+                                     class="img-thumbnail rounded-md" 
+                                     style="width: 100px; height: 100px; object-fit: cover;">
+                            </div>
+                        @endforeach
                     </div>
-                </div>
+                </div>                
             </div>
         </div>
      </main>
@@ -167,7 +167,7 @@
     ©Copyright Institut Perempuan untuk Perubahan Sosial
 </div>
 
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

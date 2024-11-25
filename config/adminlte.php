@@ -316,6 +316,16 @@ return [
             'url' => 'admin/program',
             'icon' => 'fas fa-fw fa-file-alt'
         ],
+        [
+            'text' => 'Album',
+            'url' => 'admin',
+            'icon' => 'fas fa-fw fa-images'
+        ],
+        [
+            'text' => 'Kontak',
+            'url' => 'admin',
+            'icon' => 'fas fa-fw fa-address-book'
+        ],
     ],
 
     /*

@@ -10,7 +10,8 @@
         <!-- Tambahkan Google Fonts Poppins -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-        @vite('resources/css/app.css')
+        <!-- Link ke file CSS hasil compile menggunakan Laravel Mix -->
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     
         <style>
             body {
@@ -26,7 +27,7 @@
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-yellow-300 dark:hover:bg-yellow-400 dark:focus:ring-blue-800">Kontak</button>
+                <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-yellow-300 dark:hover:bg-yellow-400 dark:focus:ring-blue-800 shadow-lg hover:shadow-xl transition-shadow duration-300">Kontak</button>
                 <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -35,7 +36,7 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-white">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-white">
                     <li>
                         <a href="{{ route('welcome') }}" class="block py-2 px-3 text-black font-light rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-black dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beranda</a>
                     </li>
@@ -55,53 +56,64 @@
             </div>
         </div>
     </nav>
-    <div class="flex flex-col md:flex-row items-center justify-between pt-0 pb-0">
+    
+    <div class="flex flex-col md:flex-row justify-between pt-0 pb-0">
         <!-- Bagian Teks -->
-        <div class="md:w-1/2 pl-28 mt-28 ">
+        <div class="md:w-1/2 pl-28 mt-28 mb-0 flex flex-col justify-between h-full">
             <h1 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-primary-900 md:text-3xl lg:text-4xl dark:text-white">
                 <span class="text-primary-600 dark:text-blue-500">Berdiri untuk keadilan dan anti kekerasan</span>, InSPIRASI NTB terus mendorong perubahan sosial yang berlandaskan kesetaraan.
             </h1>
-            <p class="text-m font-normal text-gray-500 lg:text-m dark:text-gray-400">
+            <!-- Menambahkan flex-grow untuk mendorong paragraf ke bawah -->
+            <p class="text-m font-normal text-gray-500 lg:text-m dark:text-gray-400 flex-grow">
                 Selama lebih dari 15 tahun, kami selalu berusaha mengatasi persoalan yang dihadapi perempuan.
             </p>
         </div>
-    
+        
         <!-- Bagian Gambar -->
         <div class="md:w-1/2 flex justify-center mt-28">
             <img src="{{ asset('img/berita1.png') }}" alt="CRM Image" class="w-full h-auto max-w-xl">
         </div>
+    </div>        
+    
+    {{-- Berita Utama --}}
+    <div class="mt-20 px-28 mb-0">
+        <h2 class="text-2xl font-bold">Postingan Berita Terbaru</h2>
+        <div class="flex flex-col md:flex-row items-center justify-between text-justify mt-6">
+            @if($beritaTerbaru)
+                <a href="{{ route('detailberita.show', $beritaTerbaru->id) }}" class="flex md:w-full">
+                    <div class="md:w-1/2">
+                        <img src="{{ asset('storage/berita/' . $beritaTerbaru->image) }}" alt="Berita Image" class="w-auto h-auto">
+                    </div>
+                    <div class="md:w-1/2 pl-4">
+                        <p class="text-primary-800 font-semibold">InSPIRASI Group • {{ $beritaTerbaru->tanggal }}</p>
+                        <h2 class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
+                            {{ $beritaTerbaru->judul }}
+                        </h2>
+                        <p class="text-gray-500 dark:text-gray-400 mt-2">
+                            {{ Str::limit($beritaTerbaru->deskripsi, 150) }}...
+                        </p>
+                        <div class="mt-4 space-x-2">
+                            @foreach(explode(',', $beritaTerbaru->tags) as $tag)
+                                <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">
+                                    {{ trim($tag) }}
+                                </span>
+                            @endforeach
+                        </div>
+                    </div>
+                </a>
+            @endif
+        </div>
     </div>
 
-    {{-- berita utama --}}
-    <div class="flex flex-col md:flex-row items-center justify-between mt-20 p-28 pt-0 px-24 pb-0">
-        @if($beritaTerbaru)
-            <a href="{{ route('detailberita.show', $beritaTerbaru->id) }}" class="flex md:w-full">
-                <div class="md:w-1/2">
-                    <img src="{{ asset('storage/berita/' . $beritaTerbaru->image) }}" alt="Berita Image" class="w-auto h-auto">
-                </div>
-                <div class="md:w-1/2 pl-6">
-                    <p class="text-primary-800 font-semibold">{{ $beritaTerbaru->penulis }} • {{ $beritaTerbaru->tanggal }}</p>
-                    <h2 class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">{{ $beritaTerbaru->judul }}</h2>
-                    <p class="text-gray-500 dark:text-gray-400 mt-2">{{ Str::limit($beritaTerbaru->deskripsi, 150) }}...</p>
-                    <div class="mt-4 space-x-2">
-                        @foreach(explode(',', $beritaTerbaru->tags) as $tag)
-                            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-lg text-sm font-medium">{{ trim($tag) }}</span>
-                        @endforeach
-                    </div>
-                </div>
-            </a>
-        @endif
-    </div>
-    
     {{-- list Berita --}}
-    <div class="mt-20 p-8">
+    <div class="mt-20 px-28 mb-0">
         <h2 class="text-2xl font-bold mb-4">Semua Postingan Berita</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($beritaLainnya as $item)
                 <a href="{{ route('detailberita.show', $item->id) }}" class="border rounded-lg shadow-lg overflow-hidden block">
                     <img src="{{ asset('storage/berita/' . $item->image) }}" alt="Berita Image" class="w-full h-auto">
                     <div class="p-4">
-                        <p class="text-primary-800 font-semibold">{{ $item->penulis }} • {{ $item->tanggal }}</p>
+                        <p class="text-primary-800 font-semibold">InSPIRASI Group • {{ $item->tanggal }}</p>
                         <h3 class="text-lg font-bold">{{ $item->judul }}</h3>
                         <p class="text-gray-500 mt-2">{{ Str::limit($item->deskripsi, 100) }}</p>
                         <div class="mt-4 space-x-2">
@@ -115,13 +127,14 @@
         </div>
     </div>    
     
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
-<div class="flex justify-between items-center px-24 mt-8">
+<div class="flex justify-between items-center px-24 mt-8 p-28 pt-0 pl-28">
     @if($beritaLainnya->previousPageUrl())
-        <a href="{{ $beritaLainnya->previousPageUrl() }}" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Sebelumnya</a>
+        <a href="{{ $beritaLainnya->previousPageUrl() }}" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow shadow-lg hover:shadow-xl transition-shadow duration-300">Sebelumnya</a>
     @else
-        <span class="p-2 px-3 bg-gray-300 font-bold rounded-lg shadow text-gray-500">Sebelumnya</span>
+        <span class="p-2 px-3 bg-gray-300 font-bold rounded-lg shadow text-gray-500 shadow-lg hover:shadow-xl transition-shadow duration-300">Sebelumnya</span>
     @endif
 
     <div class="flex gap-4 items-center">
@@ -133,14 +146,14 @@
     </div>
 
     @if($beritaLainnya->nextPageUrl())
-        <a href="{{ $beritaLainnya->nextPageUrl() }}" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Selanjutnya</a>
+        <a href="{{ $beritaLainnya->nextPageUrl() }}" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow shadow-lg hover:shadow-xl transition-shadow duration-300">Selanjutnya</a>
     @else
-        <span class="p-2 px-3 bg-gray-300 font-bold rounded-lg shadow text-gray-500">Selanjutnya</span>
+        <span class="p-2 px-3 bg-gray-300 font-bold rounded-lg shadow text-gray-500 shadow-lg hover:shadow-xl transition-shadow duration-300">Selanjutnya</span>
     @endif
 </div>
 
 <!-- Footer -->
-<footer class="bg-white-50 py-10 mt-12">
+<footer class="bg-white-50 py-10">
     <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row items-start">
             

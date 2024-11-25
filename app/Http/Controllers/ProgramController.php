@@ -50,9 +50,18 @@ class ProgramController extends Controller
             'deskripsi' => 'required|min:10',
             'tujuan' => 'required|min:3',
             'durasi' => 'required|min:3',
-            'mitra' => 'required|min:3',
+            'mitra.*' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
             'image' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
+
+        // Upload mitra images
+        $mitraImages = [];
+        if ($request->hasFile('mitra')) {
+            foreach ($request->file('mitra') as $mitra) {
+                $mitra->storeAs('program/mitra', $mitra->hashName(), 'public');
+                $mitraImages[] = $mitra->hashName();
+            }
+        }
 
         // Upload image
         $image = $request->file('image');
@@ -66,7 +75,7 @@ class ProgramController extends Controller
             'deskripsi' => $request->deskripsi,
             'tujuan' => $request->tujuan,
             'durasi' => $request->durasi,
-            'mitra' => $request->mitra,
+            'mitra' => json_encode($mitraImages),
             'image' => $image->hashName(),
         ]);
 
@@ -113,7 +122,7 @@ class ProgramController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        // Validate form
+        // Validate the form input
         $request->validate([
             'nama_program' => 'required|min:3',
             'lokasi' => 'required|min:3',
@@ -121,47 +130,62 @@ class ProgramController extends Controller
             'deskripsi' => 'required|min:10',
             'tujuan' => 'required|min:3',
             'durasi' => 'required|min:3',
-            'mitra' => 'required|min:3',
+            'mitra.*' => 'nullable|image|mimes:jpeg,jpg,png|max:2048', // Validate each mitra image
             'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048', // Optional image
         ]);
 
-        // Get program by ID
+        // Find the program by ID
         $program = Program::findOrFail($id);
 
-        // Check if image is uploaded
+        // Prepare data for update
+        $updateData = [
+            'nama_program' => $request->nama_program,
+            'lokasi' => $request->lokasi,
+            'status' => $request->status,
+            'deskripsi' => $request->deskripsi,
+            'tujuan' => $request->tujuan,
+            'durasi' => $request->durasi,
+        ];
+
+        // Handle the main image update
         if ($request->hasFile('image')) {
             // Upload new image
             $image = $request->file('image');
             $image->storeAs('program', $image->hashName(), 'public');
 
             // Delete old image
-            Storage::delete('public/program/' . $program->image);
+            if ($program->image) {
+                Storage::delete('public/program/' . $program->image);
+            }
 
-            // Update program with new image
-            $program->update([
-                'nama_program' => $request->nama_program,
-                'lokasi' => $request->lokasi,
-                'status' => $request->status,
-                'deskripsi' => $request->deskripsi,
-                'tujuan' => $request->tujuan,
-                'durasi' => $request->durasi,
-                'mitra' => $request->mitra,
-                'image' => $image->hashName(),
-            ]);
-        } else {
-            // Update program without changing the image
-            $program->update([
-                'nama_program' => $request->nama_program,
-                'lokasi' => $request->lokasi,
-                'status' => $request->status,
-                'deskripsi' => $request->deskripsi,
-                'tujuan' => $request->tujuan,
-                'durasi' => $request->durasi,
-                'mitra' => $request->mitra,
-            ]);
+            // Add new image name to update data
+            $updateData['image'] = $image->hashName();
         }
 
-        // Redirect to index
+        // Handle the mitra images update
+        if ($request->hasFile('mitra')) {
+            // Delete old mitra images
+            if ($program->mitra) {
+                foreach (json_decode($program->mitra, true) as $oldMitra) {
+                    Storage::delete('public/program/mitra/' . $oldMitra);
+                }
+            }
+
+            // Upload new mitra images
+            $mitraImages = [];
+            foreach ($request->file('mitra') as $mitra) {
+                $mitra->storeAs('program/mitra', $mitra->hashName(), 'public');
+                $mitraImages[] = $mitra->hashName();
+            }
+
+            // Add new mitra images to update data
+            $updateData['mitra'] = json_encode($mitraImages);
+        }
+
+        // Update the program
+        $program->update($updateData);
+
+        // Redirect to index with success message
         return redirect()->route('admin.program.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
@@ -185,6 +209,21 @@ class ProgramController extends Controller
 
         // Redirect to index
         return redirect()->route('admin.program.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+    /**
+     * Public show method to show a single berita
+     * 
+     * @param string $id
+     * @return View
+     */
+    public function publicShow(string $id): View
+    {
+        // Dapatkan berita berdasarkan ID
+        $program = Program::findOrFail($id);
+
+        // Kirim data ke view
+        return view('program.detail', compact('program'));
     }
 
 }

@@ -10,7 +10,7 @@
         <!-- Tambahkan Google Fonts Poppins -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-        @vite('resources/css/app.css')
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     
         <style>
             body {
@@ -26,7 +26,7 @@
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-secondary-300 dark:hover:bg-secondary-400 dark:focus:ring-blue-800">Kontak</button>
+                <button type="button" class="text-black bg-secondary-400 hover:bg-secondary-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-secondary-300 dark:hover:bg-secondary-400 dark:focus:ring-blue-800 shadow-lg hover:shadow-xl transition-shadow duration-300">Kontak</button>
                 <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -35,7 +35,7 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-white">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white dark:border-white">
                     <li>
                         <a href="{{ route('welcome') }}" class="block py-2 px-3 text-black font-light rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-black dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beranda</a>
                     </li>
@@ -65,18 +65,19 @@
                 <h1 class="text-2xl md:text-5xl font-extrabold text-white-50 w-full md:w-[60%]">Tumbuh dari <span class="text-secondary-500">Keprihatinan</span>, Bergerak untuk <span class="text-secondary-500">Perubahan Sosial</span> yang <span class="text-secondary-500">Membumi</span> dan <span class="text-secondary-500">Berkelanjutan</span>.</h1>
             </div>
             <!-- card -->
+            <!-- card -->
             <div class="absolute top-56 md:top-16 left-0 w-full h-full flex items-end justify-center px-4 md:px-24">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white-50 w-full rounded-lg shadow-lg overflow-hidden">
                     <div class="bg-white-50 p-4 flex flex-col items-center">
-                        <h2 class="text-2xl font-bold mb-4">8</h2>
-                        <p class="text-base text-gray-600 mb-4">Total Program InPIRASI</p>
+                        <h2 class="text-2xl font-bold mb-4">{{ $totalProgram }}</h2>
+                        <p class="text-base text-gray-600 mb-4">Total Program</p>
                     </div>
                     <div class="bg-white-50 p-4 flex flex-col items-center">
-                        <h2 class="text-2xl font-bold mb-4">1</h2>
+                        <h2 class="text-2xl font-bold mb-4">{{ $programBerlangsung }}</h2>
                         <p class="text-base text-gray-600 mb-4">Program Berlangsung</p>
                     </div>
                     <div class="bg-white-50 p-4 flex flex-col items-center">
-                        <h2 class="text-2xl font-bold mb-4">7</h2>
+                        <h2 class="text-2xl font-bold mb-4">{{ $programSelesai }}</h2>
                         <p class="text-base text-gray-600 mb-4">Program Selesai</p>
                     </div>
                 </div>
@@ -87,7 +88,7 @@
         <div class="px-4 md:px-24 py-40 pt-80 md:py-12 w-full grid grid-cols-1 md:grid-cols-2 items-center gap-8">
             <div class="col-span-1 flex flex-col items-center md:items-start">
                 <h1 class="text-3xl font-extrabold text-black text-center md:text-left">Tumbuh dari Keprihatinan, Bergerak untuk Perubahan Sosial yang Membumi dan Berkelanjutan.</h1>
-                <button class="bg-secondary-400 hover:bg-secondary-500 text-white font-bold py-2 px-4 rounded mt-6">
+                <button class="bg-secondary-400 hover:bg-secondary-500 text-white font-bold py-2 px-4 rounded mt-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 Hubungi Kami Sekarang!
                 </button>
             </div>
@@ -98,42 +99,72 @@
         
         <!-- list program -->
         <div class="px-4 md:px-24">
-            <!-- label -->
-            <div class="flex flex-row items-center gap-4 mb-14 md:mb-20">
-                <a href="#" class="text-white-50 p-2 px-3 hover:bg-secondary-200 hover:text-secondary-600 bg-secondary-600 font-bold rounded border border-secondary-200 text-xs md:text-base">Semua</a>
-                <a href="#" class="text-secondary-600 p-2 px-3 hover:bg-secondary-600 hover:text-white-50 bg-secondary-200 font-bold rounded border border-secondary-600 text-xs md:text-base">Sedang Berlangsung</a>
-                <a href="#" class="text-secondary-600 p-2 px-3 hover:bg-secondary-600 hover:text-white-50 bg-secondary-200 font-bold rounded border border-secondary-600 text-xs md:text-base">Telah Selesai</a>
-            </div>
-
-            <!-- list program -->
+            <!-- Label -->
+            <div class="flex flex-row items-center gap-4 mb-8 md:mb-10">
+                <a href="{{ url()->current() }}?status=semua"
+                   class="{{ $selectedStatus === 'semua' ? 'bg-secondary-600 text-white-50' : 'bg-neutral-50 text-secondary-600' }} p-2 px-3 font-bold rounded border text-xs md:text-base">
+                    Semua
+                </a>
+                <a href="{{ url()->current() }}?status=sedang-berlangsung"
+                   class="{{ $selectedStatus === 'sedang-berlangsung' ? 'bg-secondary-600 text-white-50' : 'bg-neutral-50 text-secondary-600' }} p-2 px-3 font-bold rounded border text-xs md:text-base">
+                    Sedang Berlangsung
+                </a>
+                <a href="{{ url()->current() }}?status=telah-selesai"
+                   class="{{ $selectedStatus === 'telah-selesai' ? 'bg-secondary-600 text-white-50' : 'bg-neutral-50 text-secondary-600' }} p-2 px-3 font-bold rounded border text-xs md:text-base">
+                    Telah Selesai
+                </a>
+            </div>            
+        
+            <!-- List Program -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                @foreach ($programs as $program)
-                <div class="col-span-1 bg-white rounded-lg shadow-md relative overflow-hidden h-80">
-                    <p class="absolute inset-0 p-2 px-4 bg-secondary-500 h-fit w-fit text-base text-gray-600 rounded-br-lg">{{ $program['status'] }}</p>
+                @foreach ($program as $item)
+                <a href="{{ route('detail.show', $item->id) }}" class="col-span-1 bg-white rounded-lg shadow-md relative overflow-hidden h-80">
+                    <p class="absolute inset-0 p-2 px-4 bg-secondary-500 h-fit w-fit text-base text-gray-600 rounded-br-lg">
+                        {{ $item->status }}
+                    </p>
                     
-                    <img src="{{ asset('img/' . $program['image']) }}" alt="{{ $program['title'] }}" class="w-full h-full object-cover">
-
+                    <img src="{{ asset('storage/program/' . $item->image) }}" alt="{{ $item->nama_program }}" class="w-full h-full object-cover">
+            
                     <div class="absolute bottom-0 left-0 w-full h-fit p-4 bg-[#065374]/60">
-                        <h2 class="text-lg text-secondary-500 font-bold mb-2">{{ $program['title'] }}</h2>
-                        <p class="font-semibold text-white-50">{{ $program['location'] }}</p>
+                        <h2 class="text-lg text-secondary-500 font-bold mb-2">
+                            {{ $item->nama_program }}
+                        </h2>
+                        <p class="font-semibold text-white-50">{{ $item->lokasi }}</p>
                     </div>
-                </div>
+                </a>
                 @endforeach
-            </div>
+            </div>            
+        
+            <!-- Pagination -->
+            <div class="flex justify-between items-center px-24 mt-20 p-28 pt-0 pl-28">
+                @if($program->previousPageUrl())
+                    <a href="{{ $program->appends(['status' => $selectedStatus])->previousPageUrl() }}"
+                    class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        Sebelumnya
+                    </a>
+                @else
+                    <span class="p-2 px-3 bg-gray-300 font-bold rounded-lg shadow text-gray-500 shadow-lg hover:shadow-xl transition-shadow duration-300">Sebelumnya</span>
+                @endif
 
-            <!-- pagination -->
-             <div class="flex justify-between items-center mt-8">
-                <a href="#" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Sebelumnya</a>
                 <div class="flex gap-4 items-center">
-                    <a href="#" class="text-primary-600">1</a>
-                    <a href="#" class="text-gray-600">2</a>
-                    <a href="#" class="text-gray-600">...</a>
-                    <a href="#" class="text-gray-600">5</a>
-                    <a href="#" class="text-gray-600">6</a>
+                    @for($i = 1; $i <= $program->lastPage(); $i++)
+                        <a href="{{ $program->appends(['status' => $selectedStatus])->url($i) }}"
+                        class="{{ $program->currentPage() == $i ? 'text-primary-600' : 'text-gray-600' }}">
+                            {{ $i }}
+                        </a>
+                    @endfor
                 </div>
-                <a href="#" class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow">Selanjutnya</a>
-             </div>
-        </div>
+
+                @if($program->nextPageUrl())
+                    <a href="{{ $program->appends(['status' => $selectedStatus])->nextPageUrl() }}"
+                    class="p-2 px-3 bg-secondary-400 hover:bg-secondary-500 font-bold rounded-lg shadow shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        Selanjutnya
+                    </a>
+                @else
+                    <span class="p-2 px-3 bg-gray-300 font-bold rounded-lg shadow text-gray-500 shadow-lg hover:shadow-xl transition-shadow duration-300">Selanjutnya</span>
+                @endif
+            </div>
+        </div>    
 
      </main>
 
@@ -185,7 +216,7 @@
     ©Copyright Institut Perempuan untuk Perubahan Sosial
 </div>
 
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

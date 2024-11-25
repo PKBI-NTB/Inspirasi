@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->string('tujuan');
             $table->string('durasi');
-            $table->string('mitra');
+            $table->json('mitra')->nullable();
             $table->string('image');
             $table->timestamps();
         });
