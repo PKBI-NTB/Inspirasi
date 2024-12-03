@@ -60,9 +60,28 @@
                         </div>
 
                         <div class="form-group mb-3">
+                            <label class="font-weight-bold">Isu</label>
+                            <select class="form-control @error('isu') is-invalid @enderror" name="isu">
+                                <option value="" disabled selected>Pilih Isu</option>
+                                @foreach ($listIsu as $isu)
+                                    <option value="{{ $isu }}" {{ old('isu', $program->isu) == $isu ? 'selected' : '' }}>
+                                        {{ $isu }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        
+                            @error('isu')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>                                                
+
+                        <div class="form-group mb-3">
                             <label class="font-weight-bold">Deskripsi</label>
                             <textarea class="form-control @error('deskripsi') is-invalid @enderror" 
                                       name="deskripsi" 
+                                      id="deskripsi"
                                       rows="5" 
                                       placeholder="Masukkan Deskripsi Program">{{ old('deskripsi', $program->deskripsi) }}</textarea>
                         
@@ -164,12 +183,29 @@
 @stop
 
 @section('css')
-    {{-- Add here extra stylesheets --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote.min.css" rel="stylesheet">
 @stop
 
 @section('js')
-    <script src="https://cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote.min.js"></script>
     <script>
-        CKEDITOR.replace('deskripsi');
+        $(document).ready(function() {
+            $('#deskripsi').summernote({
+                height: 300, // Tinggi editor
+                minHeight: null, // Tinggi minimal
+                maxHeight: null, // Tinggi maksimal
+                focus: true, // Fokus otomatis pada editor
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        });
     </script>
 @stop

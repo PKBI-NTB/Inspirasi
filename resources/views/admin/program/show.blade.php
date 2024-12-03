@@ -30,8 +30,7 @@
                         <p><strong>Tujuan:</strong> {{ $program->tujuan }}</p>
                         <hr/>
                         <p><strong>Deskripsi:</strong></p>
-                        <p>{!! nl2br(e($program->deskripsi)) !!}</p>
-
+                        <p>{!! ($program->deskripsi)!!}</p>
                         <hr/>
                         <p><strong>Mitra:</strong></p>
                         <div class="d-flex flex-wrap">
@@ -56,11 +55,29 @@
 @stop
 
 @section('css')
-{{-- Additional stylesheets can be added here if necessary --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote.min.css" rel="stylesheet">
 @stop
 
 @section('js')
-<script>
-    console.log("Viewing program details.");
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#deskripsi').summernote({
+                height: 300, // Tinggi editor
+                minHeight: null, // Tinggi minimal
+                maxHeight: null, // Tinggi maksimal
+                focus: true, // Fokus otomatis pada editor
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        });
+    </script>
 @stop

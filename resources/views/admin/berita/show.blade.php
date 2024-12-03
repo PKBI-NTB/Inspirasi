@@ -29,7 +29,7 @@
                             <p>{!! $berita->tags !!}</p>
                         </code>
                         <hr/>
-                        <p>Deskripsi : {{ $berita->deskripsi }}</p>
+                        <p>Deskripsi : {!! $berita->deskripsi !!}</p>
                     </div>
                 </div>
             </div>

@@ -21,6 +21,7 @@ class Program extends Model
         'deskripsi',
         'tujuan',
         'durasi',
+        'isu',
         'mitra',
         'image',
     ];

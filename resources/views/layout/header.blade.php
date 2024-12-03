@@ -6,6 +6,8 @@
   <title>@yield('title')</title>
   <link rel="icon" href="img/logofoot.png" type="image/png">
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
    <!-- Tambahkan Google Fonts Poppins -->

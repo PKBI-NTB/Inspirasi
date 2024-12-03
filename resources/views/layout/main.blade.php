@@ -4,7 +4,7 @@
       <!-- Navbar -->
   <nav class="bg-white-50 dark:bg-white-50 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-white-50">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="{{ route('welcome') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="{{ asset('img/logonav.png') }}" alt="Logo Navigation" class="h-15">
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
@@ -40,53 +40,10 @@
 </nav>
     @yield('content')
 <!-- Footer -->
-<footer class="bg-white-50 py-10 mt-12">
-    <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-start">
-            
-            <!-- Logo dan Deskripsi -->
-            <div class="md:size-40 mb-8 md:mb-0 mr-20">
-                <img src="{{ asset('img/logofoot.png') }}" alt="InSPIRASI NTB Logo" class="w-full h-auto max-w-sm">
-            </div>
-
-            <!-- Navigasi -->
-            <div class="md:size-40 mb-0 md:mb-0 mr-20">
-                <h3 class="text-lg font-bold mb-4">Navigasi</h3>
-                <ul class="space-y-1">
-                    <li><a href="{{ route('welcome') }}" class="text-gray-600 hover:text-gray-900">Beranda</a></li>
-                    <li><a href="{{ route('profile') }}" class="text-gray-600 hover:text-gray-900">Profil</a></li>
-                    <li><a href="{{ route('program') }}" class="text-gray-600 hover:text-gray-900">Program</a></li>
-                    <li><a href="{{ route('berita') }}" class="text-gray-600 hover:text-gray-900">Berita</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-gray-900">Layanan</a></li>
-                </ul>
-            </div>
-
-             <!-- Google Maps -->
-             <div class="md:size-20 mb-8 md:mb-0 mr-56">
-                <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d444.90758671553914!2d116.11770498431231!3d-8.625185303563988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbfa376b1df23%3A0x35743244b0b28910!2sInspirasi%20Coffee%20%26%20Culture%20movement!5e1!3m2!1sid!2sid!4v1728542733878!5m2!1sid!2sid"
-                width="450" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-
-            <!-- Kontak Kami -->
-            <div class="md:w-1/3 mb-8 md:mb-0 ml-56">
-                <h3 class="text-lg font-bold mb-4">Kontak Kami</h3>
-                <ul class="space-y-2">
-                    <li><a href="tel:+62890123412349875" class="text-gray-600 hover:text-gray-900">+62 890-1234-1234-9875</a></li>
-                    <li><a href="https://goo.gl/maps/abc123" target="_blank" class="text-gray-600 hover:text-gray-900">
-                        Perumahan Lantana Garden, Jl. Darul Hikmah No.79 Blok D5, Telaga Waru, Kec. Labuapi
-                    </a></li>
-                    <li><a href="mailto:inspirasi@gmail.com" class="text-gray-600 hover:text-gray-900">inspirasi@gmail.com</a></li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</footer>
+@include('layout.footer')
 <div  class="bg-primary-900 text-center mt-0 text-white-50 text-bold py-2">
     ©Copyright Institut Perempuan untuk Perubahan Sosial
 </div>
   <script src="{{ mix('js/app.js') }}"></script>
 </body>
-  @include('layout.footer')
   

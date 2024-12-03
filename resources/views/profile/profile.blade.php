@@ -109,7 +109,6 @@
             </div>
         </div>
         
-
         <!-- Pengurus -->
         <section id="pengurus" class="py-8 bg-white">
             <div class="container mx-auto text-center">
@@ -123,56 +122,20 @@
                 <div class="relative overflow-hidden">
                     <!-- Carousel Items -->
                     <div id="pengurusCarousel" class="flex transition-transform ease-out duration-500" style="width: 200%;">
-        
-                        <!-- Slide 1 (3 items) -->
+                        @foreach($profile->chunk(3) as $chunk)
+                        <!-- Slide -->
                         <div class="flex w-full space-x-6 justify-between" style="flex: 0 0 50%;">
+                            @foreach($chunk as $item)
                             <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-                                <img src="img/profile.jpg" alt="Pengurus 1" class="w-full h-60 object-cover">
+                                <img src="{{ asset('storage/profile/' . $item->image) }}" alt="{{ $item->name }}" class="w-full h-60 object-cover">
                                 <div class="p-4 bg-blue-900">
-                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 1</h3>
-                                    <p class="text-white">Posisi</p>
+                                    <h3 class="text-secondary-400 font-semibold text-lg">{{ $item->nama }}</h3>
+                                    <p class="text-white-50">{{ $item->posisi }}</p>
                                 </div>
                             </div>
-                            <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-                                <img src="img/profile.jpg" alt="Pengurus 2" class="w-full h-60 object-cover">
-                                <div class="p-4 bg-blue-900">
-                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 2</h3>
-                                    <p class="text-white">Posisi</p>
-                                </div>
-                            </div>
-                            <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-                                <img src="img/profile.jpg" alt="Pengurus 3" class="w-full h-60 object-cover">
-                                <div class="p-4 bg-blue-900">
-                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 3</h3>
-                                    <p class="text-white">Posisi</p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-        
-                        <!-- Slide 2 (3 items) -->
-                        <div class="flex w-full space-x-6 justify-between" style="flex: 0 0 50%;">
-                            <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-                                <img src="img/profile.jpg" alt="Pengurus 4" class="w-full h-60 object-cover">
-                                <div class="p-4 bg-blue-900">
-                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 4</h3>
-                                    <p class="text-white">Posisi</p>
-                                </div>
-                            </div>
-                            <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-                                <img src="img/profile.jpg" alt="Pengurus 5" class="w-full h-60 object-cover">
-                                <div class="p-4 bg-blue-900">
-                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 5</h3>
-                                    <p class="text-white">Posisi</p>
-                                </div>
-                            </div>
-                            <div class="flex-1 bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-                                <img src="img/profile.jpg" alt="Pengurus 6" class="w-full h-60 object-cover">
-                                <div class="p-4 bg-blue-900">
-                                    <h3 class="text-secondary-400 font-semibold text-lg">Nama Pengurus 6</h3>
-                                    <p class="text-white">Posisi</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
         
                     <!-- Tombol Prev -->
@@ -192,11 +155,12 @@
         
                 <!-- Indicator -->
                 <div class="flex justify-center space-x-2 mt-4">
-                    <span class="block w-3 h-3 bg-gray-400 rounded-full" id="indicator1"></span>
-                    <span class="block w-3 h-3 bg-gray-400 rounded-full" id="indicator2"></span>
+                    @foreach($profile->chunk(3) as $index => $chunk)
+                    <span class="block w-3 h-3 bg-gray-400 rounded-full" id="indicator{{ $index + 1 }}"></span>
+                    @endforeach
                 </div>
             </div>
-        </section>
+        </section> 
           
         <!-- Gambar Struktur Organisasi -->
         <div id="struktur" class="mt-8">
@@ -205,21 +169,34 @@
 
         <!-- 5 Isu Strategis -->
         <div id="isu-strategis" class="text-center p-6">
-            <div class="text-center">
-                <div class="relative inline-block">
-                    <span class="absolute inset-x-0 top-0 h-9 bg-primary-300"></span>
-                    <h2 class="relative text-[48px] font-bold text-black">5 Isu Strategis</h2>
-                </div>
-                                
-            </div>
-
-            <div class="mt-6">
-                <img src="{{ asset('img/isu_strategis.png') }}" alt="5 Isu Strategis" class="mx-auto w-full max-w-4xl h-auto">
-            </div>
-
-        </div>
+            <div class="flex flex-col gap-6 py-6">
+                @foreach ($isu as $item)
+                <a href="{{ route('detailisu.show', $item->id) }}" class="block">
+                    <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden transition transform hover:scale-105 hover:shadow-lg">
+                        <!-- Bagian Gambar -->
+                        <div class="w-full md:w-1/3 h-40 md:h-auto flex-shrink-0">
+                            <img 
+                                src="{{ asset('storage/isu/'. $item->image) }}" 
+                                alt="{{ $item->isu }}" 
+                                class="w-full h-full object-cover"
+                            />
+                        </div>
+                        
+                        <!-- Bagian Konten -->
+                        <div class="flex flex-col justify-center p-4 w-full md:w-2/3">
+                            <h2 class="text-lg font-bold text-gray-800 mb-2">
+                                {{ $item->isu }}
+                            </h2>
+                            <p class="text-sm text-gray-600">
+                                {!! $item->deskripsi !!}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                @endforeach
+            </div>            
+        </div>                
         
-
       </div>
     </div>
 </section>

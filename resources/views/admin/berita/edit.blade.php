@@ -74,6 +74,7 @@
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">Deskripsi</label>
                             <textarea 
+                                id="deskripsi"
                                 class="form-control @error('deskripsi') is-invalid @enderror" 
                                 name="deskripsi" 
                                 rows="5" 
@@ -109,13 +110,30 @@
 @stop
 
 @section('css')
-    {{-- Add here extra stylesheets --}}
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+    {{-- Summernote CSS --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote.min.css" rel="stylesheet">
 @stop
 
 @section('js')
-    <script src="https://cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
+    {{-- Summernote JS --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote.min.js"></script>
     <script>
-        CKEDITOR.replace('deskripsi');
+        // Inisialisasi Summernote
+        $(document).ready(function() {
+            $('#deskripsi').summernote({
+                height: 300, // Tinggi editor
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        });
     </script>
 @stop

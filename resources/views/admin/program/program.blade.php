@@ -22,6 +22,7 @@
                                         <th scope="col">Lokasi</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Durasi</th>
+                                        <th scope="col">Isu</th> <!-- New column for isu -->
                                         <th scope="col">Image</th>
                                         <th scope="col" style="width: 20%">Actions</th>
                                     </tr>
@@ -33,6 +34,7 @@
                                             <td>{{ $item->lokasi }}</td>
                                             <td>{{ $item->status }}</td>
                                             <td>{{ $item->durasi }}</td>
+                                            <td>{{ $item->isu ?? 'N/A' }}</td> <!-- Display isu field -->
                                             <td class="text-center">
                                                 <img src="{{ Storage::url('program/'.$item->image) }}" class="rounded" style="width: 150px;">
                                             </td>
