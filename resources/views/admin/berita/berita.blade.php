@@ -36,10 +36,15 @@
                                             <td class="text-center">
                                                 <img src="{{ Storage::url('berita/'.$item->image) }}" class="rounded" style="width: 150px;">
                                             </td>
-                                            <td style="display: -webkit-box; -webkit-line-clamp: 10; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
-                                                {{ $item->deskripsi }}
+                                            <td style="display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
+                                                <!-- Menampilkan deskripsi dengan format HTML -->
+                                                <p>{!! $item->deskripsi !!}</p>
                                             </td>                                            
-                                            <td>{{ $item->tags }}</td>
+                                            <td>
+                                                @foreach(explode(',', $item->tags) as $tag)
+                                                    <span class="badge bg-primary">{{ $tag }}</span>
+                                                @endforeach
+                                            </td>
                                             <td class="text-center">
                                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('admin.berita.destroy', $item->id) }}" method="POST">
                                                     <a href="{{ route('admin.berita.show', $item->id) }}" class="btn btn-sm btn-dark">SHOW</a>

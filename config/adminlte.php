@@ -260,7 +260,7 @@ return [
     'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
-    'register_url' => 'register',
+    'register_url' => false,
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => false,
@@ -314,8 +314,33 @@ return [
         [
             'text' => 'Program',
             'url' => 'admin/program',
-            'icon' => 'fas fa-fw fa-file-alt'
+            'icon' => 'fas fa-fw fa-tasks' 
         ],
+        [
+            'text' => 'Isu Strategis',
+            'url' => 'admin/isu',
+            'icon' => 'fas fa-fw fa-clipboard'
+        ],
+        [
+            'text' => 'Profile (Pengurus)',
+            'url' => 'admin/profile',
+            'icon' => 'fas fa-fw fa-user-circle' 
+        ],
+        [
+            'text' => 'Mitra',
+            'url' => 'admin/mitra',
+            'icon' => 'fas fa-fw fa-handshake'
+        ],
+        [
+            'text' => 'Album',
+            'url' => 'admin/album',
+            'icon' => 'fas fa-fw fa-images'
+        ],
+        [
+            'text' => 'Kontak',
+            'url' => 'admin/kontak',
+            'icon' => 'fas fa-fw fa-phone-alt'
+        ],        
     ],
 
     /*
